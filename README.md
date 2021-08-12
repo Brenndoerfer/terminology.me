@@ -3,3 +3,8 @@
 - [] navigation as Link and correct icons
 - [] contribute page
 - [] contact page
+- [] move content tab on term page to top on sm-view
+- [] breadcrumbs color on
+- [] terms background based on domain
+- [] add mailchimp newsletter integration integration
+- [] add comments area

@@ -19,25 +19,35 @@ const solutions = [
         description: 'Get a better understanding of where your traffic is coming from.',
         href: '#',
         icon: ChartBarIcon,
+        color: 'blue',
     },
     {
         name: 'Data Engineering',
         description: 'Speak directly to your customers in a more meaningful way.',
         href: '#',
         icon: CursorClickIcon,
+        color: 'red',
     },
-    { name: 'Software Engineering', description: "Your customers' data will be safe and secure.", href: '#', icon: ShieldCheckIcon },
     {
-        name: 'Finance',
+        name: 'Software Engineering',
+        description: "Your customers' data will be safe and secure.",
+        href: '#',
+        icon: ShieldCheckIcon,
+        color: 'blue',
+    },
+    {
+        name: 'Business & Finance',
         description: "Connect with third-party tools that you're already using.",
         href: '#',
         icon: ViewGridIcon,
+        color: 'blue',
     },
     {
-        name: 'Cloud',
+        name: 'Cloud Technology',
         description: 'Build strategic funnels that will drive your customers to convert',
         href: '#',
         icon: RefreshIcon,
+        color: 'blue',
     },
     // {
     //     name: 'Reports',
@@ -47,13 +57,21 @@ const solutions = [
     // },
 ]
 const resources = [
-    { name: 'Software Engineering', description: 'Unit tests, decorator, and more', href: '#' },
     {
-        name: 'Finance',
-        description: 'EBITDA, credit default swaps, and more',
+        name: 'Software Engineering',
+        description: 'Unit tests, blue-green deloyments, etc.',
+        href: '#'
+    },
+    {
+        name: 'Business & Finance',
+        description: 'EBITDA, credit default swaps, etc.',
         href: '#',
     },
-    { name: 'Cloud', description: 'AWS, GCP, Azure and more', href: '#' },
+    {
+        name: 'Cloud Technology',
+        description: 'AWS, GCP, Azure, Databricks, etc.',
+        href: '#'
+    },
 ]
 
 function classNames(...classes) {
@@ -71,11 +89,12 @@ export default function HeaderNavbar() {
                                 <div>
                                     <Link href="/"><a className="flex">
                                         <span className="sr-only">Workflow</span>
-                                        <img
+                                        <img src="/logo.png" className='h-8 sm:h-10' alt="" />
+                                        {/* <img
                                             className="h-8 w-auto sm:h-10"
                                             src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                                             alt=""
-                                        />
+                                        /> */}
                                         <span className="inline-block mt-1 sm:mt-2  ml-6 font-bold uppercase ">Terminology.me</span>
                                     </a>
                                     </Link>
@@ -251,11 +270,12 @@ export default function HeaderNavbar() {
                                         <div className="pt-5 pb-6 px-5">
                                             <div className="flex items-center justify-between">
                                                 <div>
-                                                    <img
+                                                    <img src="/logo.png" className='inline-block h-8 sm:h-10' alt="" />
+                                                    {/* <img
                                                         className="h-8 w-auto inline-block"
                                                         src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                                                         alt="Workflow"
-                                                    />
+                                                    /> */}
                                                     <span className="inline-block ml-6 font-bold uppercase ">Terminology.me</span>
                                                 </div>
                                                 <div className="-mr-2">

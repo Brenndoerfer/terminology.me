@@ -19,8 +19,11 @@ import { Menu, Popover, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
 import Breadcrumbs from './Breadcrumbs';
-import Select from 'react-select'
+import ReactMarkdown from 'react-markdown'
+import rmStyles from './ReactMarkdown.module.css'
+
 import VerticalNavigation from './VerticalNavigation';
+import SelectSearch from '../SelectSearch';
 
 const user = {
     name: 'Chelsea Hagon',
@@ -52,7 +55,7 @@ const options = [
 export default function AppliactionLayout(props) {
     return (
         <div className=" bg-gray-50">
-            <Popover as="header" className="pb-24 bg-indigo-500">
+            <Popover as="header" className="pb-24 bg-blue-500">
                 {({ open }) => (
                     <>
                         <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -69,7 +72,7 @@ export default function AppliactionLayout(props) {
                                             <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                                                 <SearchIcon className="h-5 w-5" aria-hidden="true" />
                                             </div>
-                                            <Select options={options}></Select>
+                                            <SelectSearch options={options} inputId='searchSmall' />
                                             {/* <input
                                                 id="search"
                                                 className="block w-full bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
@@ -112,7 +115,7 @@ export default function AppliactionLayout(props) {
                                                 <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                                                     <SearchIcon className="h-5 w-5" aria-hidden="true" />
                                                 </div>
-                                                <Select options={options}></Select>
+                                                <SelectSearch options={options} inputId='searchBig' />
                                                 {/* <input
                                                     id="search"
                                                     className="block w-full bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
@@ -263,9 +266,17 @@ export default function AppliactionLayout(props) {
                                 </h2>
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
                                     <div className="p-6">
-                                        <pre>
-                                            {JSON.stringify(props.content, null, 4)}
-                                        </pre>
+                                        <div className={rmStyles.rm}>
+                                            <ReactMarkdown
+                                                // components={ArticleReactMarkdownComponents}
+                                                // remarkPlugins={[unwrapImages, [gfm, { singleTilde: false }], remarkMath]}
+                                                // rehypePlugins={[rehypeKatex]}
+                                                children={props.content.content}
+                                            />
+                                            <pre>
+                                                {JSON.stringify(props.content, null, 4)}
+                                            </pre>
+                                        </div>
                                     </div>
                                 </div>
                             </section>

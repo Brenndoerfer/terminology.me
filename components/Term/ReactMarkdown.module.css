@@ -1,0 +1,13 @@
+.rm {}
+
+.rm h2 {
+    @apply text-xl font-bold
+}
+
+.rm h3 {
+    @apply text-2xl font-bold py-4
+}
+
+.rm p {
+    @apply py-4
+}

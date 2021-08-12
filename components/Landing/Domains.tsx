@@ -1,29 +1,40 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { GlobeAltIcon, LightningBoltIcon, MailIcon, ScaleIcon } from '@heroicons/react/outline'
+import { BeakerIcon, CurrencyDollarIcon, CloudIcon, DatabaseIcon, CodeIcon } from '@heroicons/react/outline'
 
 const features = [
     {
-        name: 'Data Science & Machine Learning',
+        name: 'Data Science',
         description: 'Consequuntur omnis dicta cumque, inventore atque ab dolores aspernatur tempora ab doloremque.',
-        icon: GlobeAltIcon,
+        icon: BeakerIcon,
+        color: 'blue',
     },
     {
         name: 'Data Engineering',
         description:
             'Corporis quisquam nostrum nulla veniam recusandae temporibus aperiam officia incidunt at distinctio ratione.',
-        icon: ScaleIcon,
+        icon: DatabaseIcon,
+        color: 'blue',
     },
     {
-        name: 'Finance',
+        name: 'Business & Finance',
         description:
             'Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.',
-        icon: LightningBoltIcon,
+        icon: CurrencyDollarIcon,
+        color: 'blue',
     },
     {
         name: 'Software Engineering',
         description:
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
-        icon: MailIcon,
+        icon: CodeIcon,
+        color: 'blue',
+    },
+    {
+        name: 'Cloud Technology',
+        description:
+            'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
+        icon: CloudIcon,
+        color: 'blue',
     },
 ]
 

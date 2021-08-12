@@ -18,25 +18,27 @@ export default function Newsletter() {
     return (
         <div className="bg-white">
             <div className="container mx-auto py-4 px-4 sm:px-6 lg:py-24 lg:px-6 lg:flex lg:items-center">
+
                 <div className="lg:w-0 lg:flex-1">
                     <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Sign up for our newsletter</h2>
                     <p className="mt-3 max-w-3xl text-lg text-gray-500">
-                        Get important updates and monthly digests. We will not spam you. Promised.
+                        The latest news, articles, and resources
                     </p>
                 </div>
-                <div className="mt-8 lg:mt-0 lg:ml-8">
+
+                <div className="mt-8 lg:mt-0 lg:ml-8 w-1/2">
                     <form className="sm:flex">
-                        <label htmlFor="emailAddress" className="sr-only">
+                        <label htmlFor="emailAddressNewsletterContent" className="sr-only">
                             Email address
                         </label>
                         <input
-                            id="emailAddress"
-                            name="emailAddress"
+                            id="emailAddressNewsletterContent"
+                            name="emailAddressNewsletterContent"
                             type="email"
                             autoComplete="email"
                             required
                             className="w-full px-5 py-3 border border-gray-300 shadow-sm placeholder-gray-400 focus:ring-1 focus:ring-indigo-500 focus:border-indigo-500  rounded-md"
-                            placeholder="Enter your email"
+                            placeholder="Enter your email ..."
                         />
                         <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                             <button

@@ -1,8 +1,10 @@
 import styles from './Hero.module.css'
-import Select, { components } from 'react-select';
+import { components } from 'react-select';
 import { useWindowSize } from '../../lib/layout';
 import Learn from '../../public/assets/static/landing/learn.svg';
 import Image from 'next/image';
+import SelectSearch from '../SelectSearch';
+import Typewriter from 'typewriter-effect';
 
 const options = [
     { value: 'chocolate', label: 'Chocolate' },
@@ -34,31 +36,53 @@ export default function Hero({ searchOptions }) {
         <>
             <section className="bg-white">
 
-                <div className="container mx-auto flex px-5 md:flex-row flex-col py-24">
+                <div className="container mx-auto flex px-5 md:flex-row flex-col py-16 md:py-24">
 
-                    <div className="mx-auto md:w-1/2 flex flex-col md:items-start md:text-left mb-16 md:mb-0 mt-4  text-center">
+                    <div className="mx-auto w-full xl:w-4/6 flex flex-col md:items-start md:text-left  text-center">
 
                         {/* https://www.npmjs.com/package/typewriter-effect */}
-                        <h1 className="title-font sm:text-4xl text-3xl mb-4 font-bold text-gray-900 mx-auto">Terminology.me
+                        <h1 className="title-font sm:text-4xl mb-8 lg:mb-0 md text-3xl font-serif font-extrabold text-gray-900 mx-auto">
+                            {/* Terminology.me */}
+                            <Typewriter
+                                onInit={(typewriter) => {
+                                    typewriter
+                                        .typeString('What is ...')
+                                        .pauseFor(500)
+                                        .deleteChars(3)
+                                        .changeDeleteSpeed(10)
+
+                                        .typeString('Statistical Inference?')
+                                        .pauseFor(1500)
+                                        .deleteChars(22)
+
+                                        .typeString('Apache Spark?')
+                                        .pauseFor(1500)
+                                        .deleteChars(13)
+
+                                        .typeString('a Credit Default Swap?')
+                                        .pauseFor(1500)
+                                        .changeDeleteSpeed(1)
+                                        .deleteAll()
+
+                                        .typeString('Terminology.me')
+                                        .start();
+                                }}
+                            />
                             <br className="hidden lg:inline-block" />
                         </h1>
 
-                        <div className="mb-4 mt-8 leading-relaxed w-full text-center text-lg">
-                            Compact and easy to understand explanations of a modern engineers' terminology
+                        <SelectSearch options={searchOptions} styles={customStyles} css='w-full mb-4'></SelectSearch>
+                        <div className="leading-relaxed w-full text-center text-gray-600">
+                            Compact and easy to understand explanations for the modern, cross-functional engineer
                         </div>
 
-                        <Select options={searchOptions} className="w-full" styles={customStyles} placeholder='I want to learn about ...' inputId='landing-search' />
-
-                        <div className="flex flex-wrap mt-8 justify-center mx-auto">
-                            {/* <div><button className=" text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Random Term</button></div>
-                            <div><button className="ml-4  text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Glossary</button></div> */}
-                        </div>
+                        {/* <div className="flex flex-wrap mt-8 justify-center mx-auto">
+                            <div><button className=" text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Random Term</button></div>
+                            <div><button className="ml-4  text-gray-700 bg-gray-100 border-0 py-2 px-6 focus:outline-none hover:bg-gray-200 rounded text-lg">Glossary</button></div>
+                        </div> */}
                     </div>
 
-                    {/* <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 mx-auto"> */}
-                    {/* <Image src='/../public/assets/static/landing/learn.png' blurDataURL='/../public/assets/static/landing/learn.png' placeholder='blur' layout='responsive' width="100%" height="50%" /> */}
-                    {/* <img className="object-cover object-center rounded" alt="hero" src="https://dummyimage.com/720x600" /> */}
-                    {/* </div> */}
+
                 </div>
             </section>
         </>

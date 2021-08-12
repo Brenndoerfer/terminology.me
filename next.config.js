@@ -1,11 +1,13 @@
 const withPlugins = require("next-compose-plugins");
 
-const withSvgr = require('next-plugin-svgr');
 
-// module.exports = {
-//     reactStrictMode: true,
-// }
-module.exports = withPlugins([
-    withSvgr
-    // your other plugins here
-]);
+module.exports = {
+    reactStrictMode: true,
+    typescript: {
+        // !! WARN !!
+        // Dangerously allow production builds to successfully complete even if
+        // your project has type errors.
+        // !! WARN !!
+        ignoreBuildErrors: true,
+    },
+}
