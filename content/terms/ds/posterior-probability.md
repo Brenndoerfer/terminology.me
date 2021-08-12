@@ -1,5 +1,10 @@
 ---
 title: "Posterior Probability"
 tags: ["bayesian statistics", "bayesian inference"]
-abrv: ""
+domain: "ds"
+topics: []
+author: "michael_brenndoerfer"
+created: ""
+updated: ""
+draft: true
 ---

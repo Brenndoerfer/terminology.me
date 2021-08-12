@@ -25,6 +25,9 @@ import rmStyles from './ReactMarkdown.module.css'
 import VerticalNavigation from './VerticalNavigation';
 import SelectSearch from '../SelectSearch';
 
+import { DiscussionEmbed } from 'disqus-react';
+import { DISQUS_SHORTNAME, DOMAIN } from '../../lib/constants';
+
 const user = {
     name: 'Chelsea Hagon',
     handle: 'chelseahagon',
@@ -55,7 +58,7 @@ const options = [
 export default function AppliactionLayout(props) {
     return (
         <div className=" bg-gray-50">
-            <Popover as="header" className="pb-24 bg-blue-500">
+            <Popover as="header" className="pb-24 bg-indigo-500">
                 {({ open }) => (
                     <>
                         <div className="container mx-auto px-4 sm:px-6 lg:px-8 ">
@@ -72,7 +75,7 @@ export default function AppliactionLayout(props) {
                                             <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                                                 <SearchIcon className="h-5 w-5" aria-hidden="true" />
                                             </div>
-                                            <SelectSearch options={options} inputId='searchSmall' />
+                                            <SelectSearch options={props.searchOptions} inputId='searchSmall' />
                                             {/* <input
                                                 id="search"
                                                 className="block w-full bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
@@ -115,7 +118,7 @@ export default function AppliactionLayout(props) {
                                                 <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                                                     <SearchIcon className="h-5 w-5" aria-hidden="true" />
                                                 </div>
-                                                <SelectSearch options={options} inputId='searchBig' />
+                                                <SelectSearch options={props.searchOptions} inputId='searchBig' />
                                                 {/* <input
                                                     id="search"
                                                     className="block w-full bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
@@ -255,18 +258,24 @@ export default function AppliactionLayout(props) {
             </Popover>
             <main className="-mt-24 pb-8 ">
                 <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="sr-only">Page title</h1>
+                    {/* <h1 className="sr-only">Page title</h1> */}
                     {/* Main 3 column grid */}
                     <div className="grid grid-cols-1 gap-4 items-start lg:grid-cols-3 lg:gap-8">
                         {/* Left column */}
                         <div className="grid grid-cols-1 gap-4 lg:col-span-2">
                             <section aria-labelledby="section-1-title">
-                                <h2 className="sr-only" id="section-1-title">
+                                {/* <h2 className="sr-only" id="section-1-title">
                                     Section title
-                                </h2>
+                                </h2> */}
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
                                     <div className="p-6">
                                         <div className={rmStyles.rm}>
+                                            <h1></h1>
+                                            <div className="w-full mb-6 lg:mb-0">
+                                                <h1 className="">{props.content.data.title}</h1>
+                                                <div className="h-2 w-20 bg-indigo-500"></div>
+                                            </div>
+
                                             <ReactMarkdown
                                                 // components={ArticleReactMarkdownComponents}
                                                 // remarkPlugins={[unwrapImages, [gfm, { singleTilde: false }], remarkMath]}
@@ -276,6 +285,34 @@ export default function AppliactionLayout(props) {
                                             <pre>
                                                 {JSON.stringify(props.content, null, 4)}
                                             </pre>
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                            <section aria-labelledby="section-1-title">
+                                {/* <h2 className="sr-only" id="section-1-title">
+                                    Section title
+                                </h2> */}
+                                <div className="rounded-sm bg-white overflow-hidden shadow">
+                                    <div className="p-6">
+                                        <div className={rmStyles.rm}>
+                                            <div className="w-full mb-6 lg:mb-0">
+                                                <h2>Comments</h2>
+                                                <div className="h-1 w-20 bg-indigo-500"></div>
+                                            </div>
+                                            <div className="mt-8">
+                                                <DiscussionEmbed
+                                                    shortname={DISQUS_SHORTNAME}
+                                                    config={
+                                                        {
+                                                            url: `${DOMAIN}/term/${props.content.slug}}`,
+                                                            identifier: props.content.slug,
+                                                            title: props.content.data.title,
+                                                            language: 'en_US',
+                                                        }
+                                                    }
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -291,13 +328,14 @@ export default function AppliactionLayout(props) {
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
 
                                     <div className="p-6">
-                                        <div className="text-2xl font-bold mb-4">Content</div>
                                         <VerticalNavigation />
                                     </div>
                                 </div>
                             </section>
                         </div>
                     </div>
+
+
                 </div>
             </main>
             {/* <footer>
@@ -308,6 +346,6 @@ export default function AppliactionLayout(props) {
                     </div>
                 </div>
             </footer> */}
-        </div>
+        </div >
     )
 }

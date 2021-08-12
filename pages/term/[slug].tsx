@@ -6,15 +6,18 @@ import AppliactionLayout from '../../components/Term/ApplicationLayout';
 import React from "react";
 import Newsletter from '../../components/Landing/Newsletter';
 import TermSuggestions from "../../components/Landing/TermSuggestions";
+import HeadMeta from "../../components/HeadMeta";
+import { Item } from "../../lib/IItemData";
 
 
-export default function Term({ term, all }: { term: Item, all: Item[] }) {
+export default function Term({ term, searchOptions }: { term: Item, searchOptions: Item[] }) {
 
     return (
         <>
+            <HeadMeta title={term.data.title} term={true} />
             <HeaderNavbar />
             <Layout>
-                <AppliactionLayout content={term}></AppliactionLayout>
+                <AppliactionLayout content={term} searchOptions={searchOptions}></AppliactionLayout>
             </Layout>
             <Newsletter />
             <TermSuggestions title="You might be interested in" />
@@ -26,10 +29,11 @@ export default function Term({ term, all }: { term: Item, all: Item[] }) {
 export async function getStaticProps({ params }) {
     const all = getAllItems()
     const term = (all.filter(term => term.slug === params.slug))[0]
+    const searchOptions = all.map(term => { return { value: term.slug, label: term.data.title } })
 
     return {
         props: {
-            all, term
+            searchOptions, term
         }
     }
 }

@@ -1,5 +1,6 @@
 ---
 title: "Bayesian Inference"
+abrv: null
 tags:
   [
     "Bayes Theorem",
@@ -7,5 +8,10 @@ tags:
     "Prior Probability",
     "bayesian statistics",
   ]
-abrv: ""
+domain: "ds"
+topics: []
+author: "michael_brenndoerfer"
+created: ""
+updated: ""
+draft: true
 ---

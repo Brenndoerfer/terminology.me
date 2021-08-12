@@ -1,13 +1,18 @@
 ---
-title: ""
-tags: [""]
+title: "Statistical Inference"
 abrv: null
+tags: []
+domain: "ds"
+topics: []
+author: "michael_brenndoerfer"
+created: ""
+updated: ""
 draft: false
-references:
-  [
-    "https://mne.tools/stable/auto_tutorials/stats-sensor-space/10_background_stats.html",
-    "https://en.wikipedia.org/wiki/Statistical_inference",
-  ]
+references: [
+"https://mne.tools/stable/auto_tutorials/stats-sensor-space/10_background_stats.html",
+"https://en.wikipedia.org/wiki/Statistical_inference",
+]
+
 ---
 
 Statistical inference is the process of drawing conclusions about a populations properties based on a sample taken from the population. It allows to draw conclusions beyond the data available. Statistical inference is used together with hypotheses that are validated (failed to reject) or rejected through experiments.

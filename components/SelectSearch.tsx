@@ -23,9 +23,11 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
         // }),
         control: (provided, state) => ({
             ...provided,
-            borderRadius: 3,
+            borderRadius: 2,
             fontColor: 'black',
-            fontSize: 15
+            fontSize: 15,
+            borderColor: 'none',
+            boxShadow: ' 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);'
         }),
         // input: (provided, state) => ({
         //     ...provided,
@@ -49,7 +51,7 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
 
     const handleChange = value => {
         let url = `/term/${value.value}`
-        router.push(url, undefined, { shallow: true })
+        router.push(url, undefined, { shallow: false })
     }
 
     const handleShortcut = () => {

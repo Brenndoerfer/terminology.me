@@ -41,25 +41,25 @@ export default function Hero({ searchOptions }) {
                     <div className="mx-auto w-full xl:w-4/6 flex flex-col md:items-start md:text-left  text-center">
 
                         {/* https://www.npmjs.com/package/typewriter-effect */}
-                        <h1 className="title-font sm:text-4xl mb-8 lg:mb-0 md text-3xl font-serif font-extrabold text-gray-900 mx-auto">
+                        <div className="title-font sm:text-4xl mb-8 lg:mb-0 md text-3xl font-serif font-extrabold text-gray-900 mx-auto">
                             {/* Terminology.me */}
                             <Typewriter
                                 onInit={(typewriter) => {
                                     typewriter
-                                        .typeString('What is ...')
+                                        .typeString('What is...')
                                         .pauseFor(500)
                                         .deleteChars(3)
                                         .changeDeleteSpeed(10)
 
-                                        .typeString('Statistical Inference?')
+                                        .typeString(' XGBoost?')
                                         .pauseFor(1500)
-                                        .deleteChars(22)
+                                        .deleteChars(9)
 
-                                        .typeString('Apache Spark?')
+                                        .typeString(' Apache Spark?')
                                         .pauseFor(1500)
                                         .deleteChars(13)
 
-                                        .typeString('a Credit Default Swap?')
+                                        .typeString(' EBITDA?')
                                         .pauseFor(1500)
                                         .changeDeleteSpeed(1)
                                         .deleteAll()
@@ -69,12 +69,12 @@ export default function Hero({ searchOptions }) {
                                 }}
                             />
                             <br className="hidden lg:inline-block" />
-                        </h1>
+                        </div>
 
                         <SelectSearch options={searchOptions} styles={customStyles} css='w-full mb-4'></SelectSearch>
-                        <div className="leading-relaxed w-full text-center text-gray-600">
+                        <h1 className="leading-relaxed w-full text-center text-gray-600">
                             Compact and easy to understand explanations for the modern, cross-functional engineer
-                        </div>
+                        </h1>
 
                         {/* <div className="flex flex-wrap mt-8 justify-center mx-auto">
                             <div><button className=" text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded text-lg">Random Term</button></div>

@@ -1,13 +1,76 @@
-.rm {}
+.rm h1 {
+    @apply text-4xl font-extrabold mb-2 text-gray-900;
+}
 
+@screen sm {
+    .rm h1 {
+        @apply text-5xl;
+    }
+}
+
+/* //sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 */
 .rm h2 {
-    @apply text-xl font-bold
+    @apply text-xl font-bold;
 }
 
 .rm h3 {
     @apply text-2xl font-bold py-4
 }
 
+.rm ol {
+    @apply my-2 pl-4 ml-2 text-gray-800
+}
+
+.rm ul>li {
+    list-style: square inside none;
+    @apply my-2 text-gray-800
+}
+
+.rm ol>li {
+    list-style: outside decimal;
+    @apply my-2 pl-2
+}
+
+.rm ul>li {
+    @apply my-2
+}
+
+.rm ul li>ul li {
+    list-style: disc inside;
+    @apply ml-6
+}
+
+.rm ul li>ol li {
+    list-style: lower-alpha outside;
+    @apply pl-2 ml-4
+}
+
+.rm ol li>ul li {
+    list-style: disc inside;
+
+}
+
+.rm ol li>ol li {
+    list-style: lower-alpha outside;
+    @apply pl-2 -ml-2
+}
+
+.rm ol li>ol {
+    @apply my-2
+}
+
+.rm li>p {
+    display: inline;
+}
+
 .rm p {
-    @apply py-4
+    @apply my-4 text-gray-800;
+}
+
+.rm pre {
+    @apply text-lg
+}
+
+.rm img {
+    @apply mt-8 mb-2 mx-auto w-1/2
 }

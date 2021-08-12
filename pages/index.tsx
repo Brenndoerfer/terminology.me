@@ -13,10 +13,12 @@ import { Item } from '../lib/IItemData';
 import { getAllItems } from '../lib/loader';
 import Domains from '../components/Landing/Domains';
 import TopicGallery from '../components/Landing/TopicGallery';
+import HeadMeta from '../components/HeadMeta';
 
 export default function Home({ allItems, searchOptions }) {
     return (
         <>
+            <HeadMeta />
             <HeaderNavbar />
             <Layout>
                 <Hero searchOptions={searchOptions} />

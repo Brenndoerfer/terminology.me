@@ -8,3 +8,4 @@
 - [] terms background based on domain
 - [] add mailchimp newsletter integration integration
 - [] add comments area
+- [] after start scroll change py-6 to py-4

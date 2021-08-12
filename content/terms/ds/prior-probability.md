@@ -1,13 +1,16 @@
 ---
 title: "Prior Probability"
-tags: ["bayesian statistics", "bayesian inference", "posterior probability"]
-abrv: null
+domain: "ds"
+topics: []
+author: "michael_brenndoerfer"
+created: ""
+updated: ""
 draft: false
-references:
-  [
-    "https://www.investopedia.com/terms/p/prior_probability.asp",
-    "https://en.wikipedia.org/wiki/Prior_probability",
-  ]
+tags: []
+references: [
+"https://www.investopedia.com/terms/p/prior_probability.asp",
+"https://en.wikipedia.org/wiki/Prior_probability",
+]
 ---
 
 Prior probability is a term in Bayesian statistical inference. It is the best prediction of the outcome of an experiment based only on the currently available information (data). In statistical terms, we only know the probability of event A to be occurring. Therefore our prior is $ P(A) $.

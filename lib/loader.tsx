@@ -5,7 +5,7 @@ import matter from 'gray-matter';
 import sha1 from 'js-sha1';
 import { Item, MatterResult } from './IItemData';
 
-const itemsDirectory = join(process.cwd(), 'content')
+const itemsDirectory = join(process.cwd(), 'content/terms/ds')
 const allTags: string[] = [];
 
 export function getItemsSlugs() {
@@ -48,7 +48,7 @@ export function getAllItems(): Item[] {
     let hashes: string[] = []
     const items: Item[] = slugs
         .map(slug => getItemsBySlug(slug))
-        .filter(post => !post.data?.draft || (post.data?.draft && post.content.length == 0 && post.excerpt.length == 0))
+        .filter(post => !post.data?.draft)
         .sort((post1, post2) => (post1.data.title.toLowerCase() > post2.data.title.toLowerCase() ? 1 : -1))
 
 

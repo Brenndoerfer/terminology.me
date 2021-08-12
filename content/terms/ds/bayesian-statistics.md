@@ -1,7 +1,12 @@
 ---
 title: "Bayesian Statistics"
-tags: ["Bayes Theorem", "Posterior Probability"]
 abrv: null
+tags: ["Bayes Theorem", "Posterior Probability"]
+domain: "ds"
+topics: []
+author: "michael_brenndoerfer"
+created: ""
+updated: ""
 draft: true
 ---
 
