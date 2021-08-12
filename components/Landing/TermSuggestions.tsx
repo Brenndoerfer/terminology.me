@@ -1,7 +1,14 @@
-export default function TermSuggestions({ title }: { title: string }) {
+import classNames from 'classnames';
+
+interface TermSuggestionsProp {
+    title: string,
+    css?: string
+}
+
+export default function TermSuggestions({ title, css }: TermSuggestionsProp) {
     return (
         <>
-            <section className="text-gray-600 body-font bg-white">
+            <section className={classNames('text-gray-600 body-font bg-white', css)}>
                 <div className="container px-5 pb-24 mx-auto">
                     {/* <div className="flex flex-col mb-4">
                         <div className="h-1 bg-gray-200 rounded overflow-hidden">

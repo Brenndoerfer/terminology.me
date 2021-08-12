@@ -27,6 +27,7 @@ import SelectSearch from '../SelectSearch';
 
 import { DiscussionEmbed } from 'disqus-react';
 import { DISQUS_SHORTNAME, DOMAIN } from '../../lib/constants';
+import RelatedTags from './RelatedTags';
 
 const user = {
     name: 'Chelsea Hagon',
@@ -308,7 +309,6 @@ export default function AppliactionLayout(props) {
                                                             url: `${DOMAIN}/term/${props.content.slug}}`,
                                                             identifier: props.content.slug,
                                                             title: props.content.data.title,
-                                                            language: 'en_US',
                                                         }
                                                     }
                                                 />
@@ -332,7 +332,20 @@ export default function AppliactionLayout(props) {
                                     </div>
                                 </div>
                             </section>
+
+                            <section aria-labelledby="section-2-title">
+                                <h2 className="sr-only" id="section-2-title">
+                                    Section title
+                                </h2>
+                                <div className="rounded-sm bg-white overflow-hidden shadow">
+
+                                    <div className="p-6">
+                                        <RelatedTags />
+                                    </div>
+                                </div>
+                            </section>
                         </div>
+
                     </div>
 
 

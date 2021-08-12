@@ -28,6 +28,10 @@ export default function Stats() {
                             <h2 className="title-font font-medium text-3xl text-gray-900">9</h2>
                             <p className="leading-relaxed">Cloud Technology</p>
                         </div>
+                        <div className="p-4 sm:w-1/2 lg:w-1/3 w-1/2">
+                            <h2 className="title-font font-medium text-3xl text-gray-900">37</h2>
+                            <p className="leading-relaxed">Blockchain</p>
+                        </div>
                     </div>
                     <div className="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
                         <img className="transform scale-75 h-full" src="/assets/static/landing/growing.svg" alt="stats" />

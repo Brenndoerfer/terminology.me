@@ -8,6 +8,7 @@ import Newsletter from '../../components/Landing/Newsletter';
 import TermSuggestions from "../../components/Landing/TermSuggestions";
 import HeadMeta from "../../components/HeadMeta";
 import { Item } from "../../lib/IItemData";
+import GoToTop from "../../components/GoToTop";
 
 
 export default function Term({ term, searchOptions }: { term: Item, searchOptions: Item[] }) {
@@ -20,8 +21,9 @@ export default function Term({ term, searchOptions }: { term: Item, searchOption
                 <AppliactionLayout content={term} searchOptions={searchOptions}></AppliactionLayout>
             </Layout>
             <Newsletter />
-            <TermSuggestions title="You might be interested in" />
+            <TermSuggestions title="You might also be interested in" css="pt-12" />
             <Footer />
+            <GoToTop />
         </>
     )
 }

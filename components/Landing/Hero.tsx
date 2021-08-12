@@ -55,9 +55,9 @@ export default function Hero({ searchOptions }) {
                                         .pauseFor(1500)
                                         .deleteChars(9)
 
-                                        .typeString(' Apache Spark?')
+                                        .typeString(' Spark?')
                                         .pauseFor(1500)
-                                        .deleteChars(13)
+                                        .deleteChars(6)
 
                                         .typeString(' EBITDA?')
                                         .pauseFor(1500)

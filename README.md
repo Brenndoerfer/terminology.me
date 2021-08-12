@@ -1,11 +1,16 @@
-- [] update px-<> of containers on the landing page to all lign up. e..g all `lg:px-4`
-- [] py and px in mobile view
-- [] navigation as Link and correct icons
-- [] contribute page
-- [] contact page
-- [] move content tab on term page to top on sm-view
-- [] breadcrumbs color on
-- [] terms background based on domain
-- [] add mailchimp newsletter integration integration
-- [] add comments area
-- [] after start scroll change py-6 to py-4
+- [ ] update px-<> of containers on the landing page to all lign up. e..g all `lg:px-4`
+- [ ] py and px in mobile view
+- [ ] navigation as Link and correct icons
+  - [ ] add blockchain
+- [ ] contribute page
+- [ ] contact page
+- [ ] author page
+- [ ] domains page
+- [ ] glossary page
+- [ ] about page
+<!-- - [ ] move content tab on term page to top on sm-view -->
+- [ ] add mailchimp newsletter integration integration
+- [ ] add comments area
+- [ ] fix items in navbar when in screen=md
+- [ ] after start scroll change py-6 to py-4
+- [ ] fix newsletter width in mobile

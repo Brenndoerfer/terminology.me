@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { BeakerIcon, CurrencyDollarIcon, CloudIcon, DatabaseIcon, CodeIcon } from '@heroicons/react/outline'
+import { BeakerIcon, CurrencyDollarIcon, CloudIcon, DatabaseIcon, CodeIcon, CubeIcon } from '@heroicons/react/outline'
 
 const features = [
     {
@@ -35,6 +35,12 @@ const features = [
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
         icon: CloudIcon,
         color: 'blue',
+    }, {
+        name: 'Blockchain',
+        description:
+            'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
+        icon: CubeIcon,
+        color: 'gray',
     },
 ]
 
@@ -68,7 +74,7 @@ export default function Domains() {
                 <div className="relative lg:grid lg:grid-cols-3 lg:gap-x-8">
                     <div className="lg:col-span-1">
                         <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                            Terminology for the cross-functional engineer
+                            Terminology for the modern engineer
                         </h2>
                     </div>
                     <dl className="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">
