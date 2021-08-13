@@ -47,7 +47,7 @@ const features = [
 export default function Domains() {
     return (
         <div className="bg-gray-50 overflow-hidden">
-            <div className="relative container mx-auto py-24 px-4 sm:px-6 lg:px-8">
+            <div className="relative container mx-auto px-4 sm:px-6 py-16 sm:py-24">
                 <svg
                     className="absolute top-0 left-full transform -translate-x-1/2 -translate-y-3/4 lg:left-auto lg:right-full lg:translate-x-2/3 lg:translate-y-1/4"
                     width={404}

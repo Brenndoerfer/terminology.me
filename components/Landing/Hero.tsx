@@ -36,9 +36,9 @@ export default function Hero({ searchOptions }) {
         <>
             <section className="bg-white">
 
-                <div className="container mx-auto flex px-5 md:flex-row flex-col py-16 md:py-24">
+                <div className="container mx-auto flex md:flex-row flex-col px-4 sm:px-6 py-16 sm:py-24">
 
-                    <div className="mx-auto w-full xl:w-4/6 flex flex-col md:items-start md:text-left  text-center">
+                    <div className="mx-auto w-full xl:w-4/6 flex flex-col md:items-start md:text-left text-center">
 
                         {/* https://www.npmjs.com/package/typewriter-effect */}
                         <div className="title-font sm:text-4xl mb-8 lg:mb-0 md text-3xl font-serif font-extrabold text-gray-900 mx-auto">

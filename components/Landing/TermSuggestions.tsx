@@ -8,8 +8,8 @@ interface TermSuggestionsProp {
 export default function TermSuggestions({ title, css }: TermSuggestionsProp) {
     return (
         <>
-            <section className={classNames('text-gray-600 body-font bg-white', css)}>
-                <div className="container px-5 pb-24 mx-auto">
+            <section className={classNames('text-gray-600 body-font bg-white ', css)}>
+                <div className="container mx-auto px-4 sm:px-6 pb-16 sm:pb-24">
                     {/* <div className="flex flex-col mb-4">
                         <div className="h-1 bg-gray-200 rounded overflow-hidden">
                             <div className="w-24 h-full bg-indigo-500"></div>

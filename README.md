@@ -14,3 +14,5 @@
 - [ ] fix items in navbar when in screen=md
 - [ ] after start scroll change py-6 to py-4
 - [ ] fix newsletter width in mobile
+- [ ] under the fold dynamic load content on main and slug page
+- [ ] replace img through Image

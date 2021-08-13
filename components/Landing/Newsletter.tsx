@@ -17,7 +17,7 @@
 export default function Newsletter() {
     return (
         <div className="bg-white">
-            <div className="container mx-auto py-4 px-4 sm:px-6 lg:py-24 lg:px-6 lg:flex lg:items-center">
+            <div className="container mx-auto lg:flex lg:items-center px-4 sm:px-6 py-16 sm:py-24">
 
                 <div className="lg:w-0 lg:flex-1">
                     <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Sign up for our newsletter</h2>
@@ -26,7 +26,7 @@ export default function Newsletter() {
                     </p>
                 </div>
 
-                <div className="mt-8 lg:mt-0 lg:ml-8 w-1/2">
+                <div className="mt-8 lg:mt-0 lg:ml-8 w-full lg:w-1/2 ">
                     <form className="sm:flex">
                         <label htmlFor="emailAddressNewsletterContent" className="sr-only">
                             Email address

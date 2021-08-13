@@ -1,0 +1,15 @@
+.galleryHeight {
+    height: 75vh;
+}
+
+@screen md {
+    .galleryHeight {
+        height: 50vh;
+    }
+}
+
+@screen xl {
+    .galleryHeight {
+        height: 75vh;
+    }
+}

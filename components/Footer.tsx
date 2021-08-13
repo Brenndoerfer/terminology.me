@@ -44,7 +44,7 @@ const navigation = {
     social: [
         {
             name: 'Facebook',
-            href: '#',
+            href: 'https://www.facebook.com/terminology.me',
             icon: (props) => (
                 <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                     <path
@@ -57,7 +57,7 @@ const navigation = {
         },
         {
             name: 'Instagram',
-            href: '#',
+            href: 'https://www.instagram.com/terminology.me/',
             icon: (props) => (
                 <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                     <path
@@ -79,7 +79,7 @@ const navigation = {
         // },
         {
             name: 'GitHub',
-            href: '#',
+            href: 'https://github.com/Brenndoerfer/terminology.me',
             icon: (props) => (
                 <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
                     <path
@@ -90,19 +90,18 @@ const navigation = {
                 </svg>
             ),
         },
-        // {
-        //     name: 'Dribbble',
-        //     href: '#',
-        //     icon: (props) => (
-        //         <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-        //             <path
-        //                 fillRule="evenodd"
-        //                 d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10c5.51 0 10-4.48 10-10S17.51 2 12 2zm6.605 4.61a8.502 8.502 0 011.93 5.314c-.281-.054-3.101-.629-5.943-.271-.065-.141-.12-.293-.184-.445a25.416 25.416 0 00-.564-1.236c3.145-1.28 4.577-3.124 4.761-3.362zM12 3.475c2.17 0 4.154.813 5.662 2.148-.152.216-1.443 1.941-4.48 3.08-1.399-2.57-2.95-4.675-3.189-5A8.687 8.687 0 0112 3.475zm-3.633.803a53.896 53.896 0 013.167 4.935c-3.992 1.063-7.517 1.04-7.896 1.04a8.581 8.581 0 014.729-5.975zM3.453 12.01v-.26c.37.01 4.512.065 8.775-1.215.25.477.477.965.694 1.453-.109.033-.228.065-.336.098-4.404 1.42-6.747 5.303-6.942 5.629a8.522 8.522 0 01-2.19-5.705zM12 20.547a8.482 8.482 0 01-5.239-1.8c.152-.315 1.888-3.656 6.703-5.337.022-.01.033-.01.054-.022a35.318 35.318 0 011.823 6.475 8.4 8.4 0 01-3.341.684zm4.761-1.465c-.086-.52-.542-3.015-1.659-6.084 2.679-.423 5.022.271 5.314.369a8.468 8.468 0 01-3.655 5.715z"
-        //                 clipRule="evenodd"
-        //             />
-        //         </svg>
-        //     ),
-        // },
+        {
+            name: 'LinkedIn',
+            href: 'https://www.linkedin.com/company/terminology-me/',
+            icon: (props) => (
+                <svg fill="currentColor" viewBox="0 0 512 512" {...props}>
+                    <path
+                        fill="evenodd"
+                        d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"
+                        clipRule="evenodd" />
+                </svg>
+            ),
+        },
     ],
 }
 
@@ -113,7 +112,7 @@ export default function Footer() {
                 <h2 id="footerHeading" className="sr-only">
                     Footer
                 </h2>
-                <div className="container mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+                <div className="container mx-auto px-4 sm:px-6 py-16 sm:py-24">
                     <div className="xl:grid xl:grid-cols-3 xl:gap-8">
                         <div className="grid grid-cols-2 gap-8 xl:col-span-2">
                             <div className="md:grid md:grid-cols-2 md:gap-8">
@@ -169,14 +168,14 @@ export default function Footer() {
                                 </div>
                             </div>
                         </div>
-                        <div className="mt-8 xl:mt-0">
+                        <div className="mt-16 xl:mt-0">
                             <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
                                 Subscribe to our newsletter
                             </h3>
                             <p className="mt-4 text-base text-gray-500">
                                 The latest news, articles, and resources
                             </p>
-                            <form className="mt-4 sm:flex sm:max-w-md">
+                            <form className="mt-4 sm:flex sm:max-w-lg">
                                 <label htmlFor="emailAddress" className="sr-only">
                                     Email address
                                 </label>
@@ -207,10 +206,12 @@ export default function Footer() {
                     <div className="border-gray-200 pt-8 md:flex md:items-center md:justify-between p-8 my-8">
                         <div className="flex space-x-6 md:order-2">
                             {navigation.social.map((item) => (
-                                <a key={item.name} href={item.href} className="text-gray-400 hover:text-gray-500">
-                                    <span className="sr-only">{item.name}</span>
-                                    <item.icon className="h-6 w-6" aria-hidden="true" />
-                                </a>
+                                <Link href={item.href} key={item.name}>
+                                    <a target="_blank" className="text-gray-400 hover:text-gray-500">
+                                        <span className="sr-only">{item.name}</span>
+                                        <item.icon className="h-6 w-6" aria-hidden="true" />
+                                    </a>
+                                </Link>
                             ))}
                         </div>
                         <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">

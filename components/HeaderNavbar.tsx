@@ -13,6 +13,9 @@ import {
 } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
+import styles from './HeaderNavbar.module.css';
+import Image from 'next/Image';
+
 const solutions = [
     {
         name: 'Data Science',
@@ -49,12 +52,7 @@ const solutions = [
         icon: RefreshIcon,
         color: 'blue',
     },
-    // {
-    //     name: 'Reports',
-    //     description: 'Get detailed reports that will help you make more informed decisions ',
-    //     href: '#',
-    //     icon: DocumentReportIcon,
-    // },
+
 ]
 const resources = [
     {
@@ -80,22 +78,21 @@ function classNames(...classes) {
 
 export default function HeaderNavbar() {
     return (
-        <div className="bg-white sticky top-0 z-30  border-b" id='top'>
-            <div className="container mx-auto bg-white">
-                <Popover className="relative bg-white">
+        <div className="bg-white sticky top-0 z-30 border-b" id='top'>
+            <div className="container mx-auto py-6 px-4 sm:px-6">
+                <Popover className="relative">
                     {({ open }) => (
                         <>
-                            <div className="flex justify-between items-center px-4 py-6 sm:px-6 md:justify-start md:space-x-10">
+                            <div className="flex justify-between items-center md:justify-start md:space-x-10">
                                 <div>
                                     <Link href="/"><a className="flex">
-                                        <span className="sr-only">Workflow</span>
-                                        <img src="/logo.png" className='h-8 sm:h-10' alt="" />
-                                        {/* <img
-                                            className="h-8 w-auto sm:h-10"
-                                            src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                                            alt=""
-                                        /> */}
-                                        <span className="inline-block mt-1 sm:mt-2  ml-6 font-bold uppercase ">Terminology.me</span>
+                                        <div className="flex items-center">
+                                            <span className="sr-only">Terminology.me</span>
+                                            <Image layout="fixed" width="48" height="48" src="/logo.png" className='h-8 sm:h-10' alt="terminology.me logo small" />
+                                            <span className="ml-6 font-bold uppercase">Terminology.me</span>
+                                        </div>
+                                        {/* <img src="/logo.png" className='h-8 sm:h-10' alt="" />
+                                        <span className="inline-block mt-1 sm:mt-2  ml-6 font-bold uppercase ">Terminology.me</span> */}
                                     </a>
                                     </Link>
                                 </div>
@@ -264,19 +261,14 @@ export default function HeaderNavbar() {
                                 <Popover.Panel
                                     focus
                                     static
-                                    className="absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+                                    className="absolute -top-0 inset-x-0 transition transform origin-top-right md:hidden"
                                 >
                                     <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
-                                        <div className="pt-5 pb-6 px-5">
+                                        <div className="pt-4 pb-6 px-4">
                                             <div className="flex items-center justify-between">
-                                                <div>
-                                                    <img src="/logo.png" className='inline-block h-8 sm:h-10' alt="" />
-                                                    {/* <img
-                                                        className="h-8 w-auto inline-block"
-                                                        src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                                                        alt="Workflow"
-                                                    /> */}
-                                                    <span className="inline-block ml-6 font-bold uppercase ">Terminology.me</span>
+                                                <div className="flex items-center">
+                                                    <Image layout="fixed" width="32" height="32" src="/logo.png" className='h-8 sm:h-10' alt="terminology.me logo small" />
+                                                    <span className="ml-6 font-bold uppercase">Terminology.me</span>
                                                 </div>
                                                 <div className="-mr-2">
                                                     <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">

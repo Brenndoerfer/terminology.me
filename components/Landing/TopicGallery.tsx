@@ -1,34 +1,28 @@
+import classNames from 'classnames'
+import styles from './TopicGallery.module.css'
+
 export default function TopicGallery() {
     return (
         <>
             <section className="text-gray-600 body-font">
-                <div className="container px-5 py-24 mx-auto flex flex-wrap">
-                    <div className="flex w-full mb-20 flex-wrap">
+                <div className="container mx-auto flex flex-wrap px-4 sm:px-6 py-16 sm:py-24">
+                    <div className="flex w-full mb-12 md:mb-24 flex-wrap">
                         <h1 className="sm:text-4xl text-3xl font-extrabold text-gray-900 lg:w-1/3 lg:mb-0 mb-4">Terminology Topics</h1>
-                        <p className="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-lg">Learn terminology by topics and become an expert.<br /> There is no faster way to get yourself up to speed than this.</p>
+                        <p className="lg:pl-6 lg:w-2/3 mx-auto leading-relaxed text-lg">
+                            Learn terminology by topics. There is no faster way to get yourself up to speed with a topic than this.
+                        </p>
                     </div>
-                    <div className="flex flex-wrap md:-m-2 -m-1">
-                        <div className="flex flex-wrap w-1/2">
-                            <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block" src="https://dummyimage.com/500x300" />
-                            </div>
-                            <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block" src="https://dummyimage.com/501x301" />
-                            </div>
-                            <div className="md:p-2 p-1 w-full">
-                                <img alt="gallery" className="w-full h-full object-cover object-center block" src="https://dummyimage.com/600x360" />
-                            </div>
+
+                    <div className={classNames("flex flex-wrap w-full", styles.galleryHeight)}>
+                        <div className="flex flex-wrap w-full md:w-1/2">
+                            <div className="w-1/2  h-1/3 bg-red-300"></div>
+                            <div className="w-1/2 h-1/3 bg-blue-300 "></div>
+                            <div className="w-full h-2/3 bg-green-700"></div>
                         </div>
-                        <div className="flex flex-wrap w-1/2">
-                            <div className="md:p-2 p-1 w-full">
-                                <img alt="gallery" className="w-full h-full object-cover object-center block" src="https://dummyimage.com/601x361" />
-                            </div>
-                            <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block" src="https://dummyimage.com/502x302" />
-                            </div>
-                            <div className="md:p-2 p-1 w-1/2">
-                                <img alt="gallery" className="w-full object-cover h-full object-center block" src="https://dummyimage.com/503x303" />
-                            </div>
+                        <div className="flex flex-wrap w-full md:w-1/2">
+                            <div className="w-full h-2/3 bg-green-300"></div>
+                            <div className="w-1/2  h-1/3 bg-red-300"></div>
+                            <div className="w-1/2 h-1/3 bg-blue-300 "></div>
                         </div>
                     </div>
                 </div>
