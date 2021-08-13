@@ -1,5 +1,9 @@
+.rm {
+    @apply text-gray-700;
+}
+
 .rm h1 {
-    @apply text-4xl font-extrabold mb-2 text-gray-900;
+    @apply text-4xl font-extrabold mb-2 text-gray-700;
 }
 
 @screen sm {
@@ -10,29 +14,47 @@
 
 /* //sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 */
 .rm h2 {
-    @apply text-xl font-bold;
+    @apply text-3xl font-bold mt-16;
 }
 
 .rm h3 {
-    @apply text-2xl font-bold py-4
+    @apply text-2xl font-semibold mt-12
+}
+
+.rm h4 {
+    @apply text-xl font-medium mt-4
+}
+
+.rm p {
+    @apply my-2 text-gray-700;
+}
+
+
+.rm ol li>ol li {
+    list-style: lower-alpha outside;
+    @apply pl-2 -ml-2
+}
+
+.rm ol li>ol {
+    @apply my-1
 }
 
 .rm ol {
-    @apply my-2 pl-4 ml-2 text-gray-800
+    @apply my-1 pl-4 ml-2 text-gray-700
 }
 
 .rm ul>li {
     list-style: square inside none;
-    @apply my-2 text-gray-800
+    @apply my-1 text-gray-700
 }
 
 .rm ol>li {
     list-style: outside decimal;
-    @apply my-2 pl-2
+    @apply my-1 pl-2
 }
 
 .rm ul>li {
-    @apply my-2
+    @apply my-1
 }
 
 .rm ul li>ul li {
@@ -50,21 +72,8 @@
 
 }
 
-.rm ol li>ol li {
-    list-style: lower-alpha outside;
-    @apply pl-2 -ml-2
-}
-
-.rm ol li>ol {
-    @apply my-2
-}
-
 .rm li>p {
     display: inline;
-}
-
-.rm p {
-    @apply my-4 text-gray-800;
 }
 
 .rm pre {

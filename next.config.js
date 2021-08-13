@@ -1,7 +1,19 @@
-const withPlugins = require("next-compose-plugins");
+const withPlugins = require('next-compose-plugins');
+const withTM = require('next-transpile-modules')([
+    // 'remark-gfm',
+    // 'rehype-autolink-headings',
+    // 'remark-unwrap-images',
+    // 'hast-util-whitespace',
+    // 'micromark-extension-gfm',
+    // 'micromark-util-combine-extensions',
+    // 'micromark-util-symbol',
+    // 'micromark-util-encode',
+    // 'micromark-util-resolve-all',
+    // 'mdast-util-gfm',
+    // 'mdast-util-gfm-autolink-literal',
+]);
 
-
-module.exports = {
+module.exports = withPlugins([withTM], {
     reactStrictMode: true,
     typescript: {
         // !! WARN !!
@@ -10,4 +22,4 @@ module.exports = {
         // !! WARN !!
         ignoreBuildErrors: true,
     },
-}
+})

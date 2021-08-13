@@ -14,13 +14,13 @@
   }
   ```
 */
+import dynamic from 'next/dynamic';
 import { Fragment } from 'react'
 import { Menu, Popover, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import { SearchIcon } from '@heroicons/react/solid'
 import Breadcrumbs from './Breadcrumbs';
-import ReactMarkdown from 'react-markdown'
-import rmStyles from './ReactMarkdown.module.css'
+import rmStyles from './MarkdownRenderer.module.css'
 
 import VerticalNavigation from './VerticalNavigation';
 import SelectSearch from '../SelectSearch';
@@ -28,6 +28,8 @@ import SelectSearch from '../SelectSearch';
 import { DiscussionEmbed } from 'disqus-react';
 import { DISQUS_SHORTNAME, DOMAIN } from '../../lib/constants';
 import RelatedTags from './RelatedTags';
+import MarkdownRenderer from './MarkdownRenderer';
+// const MarkdownRenderer = dynamic(() => import('./MarkdownRenderer'));
 
 const user = {
     name: 'Chelsea Hagon',
@@ -270,23 +272,7 @@ export default function AppliactionLayout(props) {
                                 </h2> */}
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
                                     <div className="p-6">
-                                        <div className={rmStyles.rm}>
-                                            <h1></h1>
-                                            <div className="w-full mb-6 lg:mb-0">
-                                                <h1 className="">{props.content.data.title}</h1>
-                                                <div className="h-2 w-20 bg-indigo-500"></div>
-                                            </div>
-
-                                            <ReactMarkdown
-                                                // components={ArticleReactMarkdownComponents}
-                                                // remarkPlugins={[unwrapImages, [gfm, { singleTilde: false }], remarkMath]}
-                                                // rehypePlugins={[rehypeKatex]}
-                                                children={props.content.content}
-                                            />
-                                            <pre>
-                                                {JSON.stringify(props.content, null, 4)}
-                                            </pre>
-                                        </div>
+                                        <MarkdownRenderer content={props.content} />
                                     </div>
                                 </div>
                             </section>
@@ -296,12 +282,12 @@ export default function AppliactionLayout(props) {
                                 </h2> */}
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
                                     <div className="p-6">
-                                        <div className={rmStyles.rm}>
+                                        <div className="">
                                             <div className="w-full mb-6 lg:mb-0">
-                                                <h2>Comments</h2>
-                                                <div className="h-1 w-20 bg-indigo-500"></div>
+                                                <h2 className="text-2xl font-bold">Comments</h2>
+                                                <div className="h-1 w-10 bg-indigo-500"></div>
                                             </div>
-                                            <div className="mt-8">
+                                            <div className={classNames("mt-8", rmStyles.rm)}>
                                                 <DiscussionEmbed
                                                     shortname={DISQUS_SHORTNAME}
                                                     config={

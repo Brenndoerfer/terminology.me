@@ -1,5 +1,7 @@
 import fs from 'fs'
 import { parseISO, format } from 'date-fns'
+// import { formatWithOptions } from 'date-fns/fp'
+import { enUS } from 'date-fns/locale'
 import { join } from 'path'
 import matter from 'gray-matter';
 import sha1 from 'js-sha1';
@@ -12,6 +14,19 @@ export function getItemsSlugs() {
     return fs.readdirSync(itemsDirectory).filter(file => file.toLowerCase() !== '_.md')
 }
 
+// const dateToString = formatWithOptions({ locale: enUS }, 'D MMMM YYYY')
+
+const transformDate = (date: string) => {
+    try {
+        const d = parseISO(date)
+        return d
+    } catch (e) {
+        // console.log(`Error parsing date: ${e}`)
+        return ''
+    }
+
+}
+
 export function getItemsBySlug(slug: string): Item {
     const realSlug = slug.replace(/\.md$/, '')
     const fullPath = join(itemsDirectory, `${realSlug}.md`)
@@ -19,6 +34,13 @@ export function getItemsBySlug(slug: string): Item {
     const { data, excerpt, content }: MatterResult = matter(fileContents, { excerpt: true })
 
     allTags.push(data.tags)
+
+    // data.current = dateToString(data.current)
+    // data.updated = dateToString(data.updated)
+
+    // data.current = transformDate(data.current)
+    // data.updated = transformDate(data.updated)
+    // data.updated = format(parseISO(data.updated), 'D MMMM YYYY')
 
     let contentWithoutExcerpt = content
     if (excerpt) {

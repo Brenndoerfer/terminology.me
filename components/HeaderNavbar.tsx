@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import { Fragment } from 'react'
+import { Fragment, useEffect, useState } from 'react';
 import { Popover, Transition } from '@headlessui/react'
 import {
     ChartBarIcon,
@@ -15,6 +15,7 @@ import { ChevronDownIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import styles from './HeaderNavbar.module.css';
 import Image from 'next/image';
+import useScrollPosition from '@react-hook/window-scroll'
 
 const solutions = [
     {
@@ -77,18 +78,22 @@ function classNames(...classes) {
 }
 
 export default function HeaderNavbar() {
+
+    const scrollY = useScrollPosition(60)
+
+
     return (
         <div className="bg-white sticky top-0 z-30 border-b" id='top'>
             <div className="container mx-auto">
                 <Popover className="relative">
                     {({ open }) => (
                         <>
-                            <div className="flex justify-between items-center md:justify-start md:space-x-10 py-6 px-4 sm:px-6">
+                            <div className={classNames("flex justify-between items-center md:justify-start md:space-x-10 px-4 sm:px-6 py-3", scrollY < 50 ? 'py-6' : '')}>
                                 <div>
                                     <Link href="/"><a className="flex">
                                         <div className="flex items-center">
                                             <span className="sr-only">Terminology.me</span>
-                                            <Image layout="fixed" width="48" height="48" src="/logo.png" alt="terminology.me logo small" />
+                                            <Image layout="fixed" width="32" height="32" src="/logo.png" alt="terminology.me logo small" />
                                             <span className="ml-6 font-semibold uppercase">Terminology.me</span>
                                         </div>
                                         {/* <img src="/logo.png" className='h-8 sm:h-10' alt="" />

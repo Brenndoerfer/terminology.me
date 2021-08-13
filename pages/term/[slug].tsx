@@ -2,13 +2,14 @@ import { getAllItems } from "../../lib/loader"
 import HeaderNavbar from '../../components/HeaderNavbar';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
-import AppliactionLayout from '../../components/Term/ApplicationLayout';
-import React from "react";
 import Newsletter from '../../components/Landing/Newsletter';
 import TermSuggestions from "../../components/Landing/TermSuggestions";
 import HeadMeta from "../../components/HeadMeta";
 import { Item } from "../../lib/IItemData";
 import GoToTop from "../../components/GoToTop";
+import AppliactionLayout from '../../components/Term/ApplicationLayout';
+import dynamic from 'next/dynamic';
+// const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 
 
 export default function Term({ term, searchOptions }: { term: Item, searchOptions: Item[] }) {
