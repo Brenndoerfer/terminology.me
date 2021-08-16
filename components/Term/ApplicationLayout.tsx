@@ -29,6 +29,7 @@ import { DiscussionEmbed } from 'disqus-react';
 import { DISQUS_SHORTNAME, DOMAIN } from '../../lib/constants';
 import RelatedTags from './RelatedTags';
 import MarkdownRenderer from './MarkdownRenderer';
+import { ITerm } from '../../lib/loaderInterface';
 // const MarkdownRenderer = dynamic(() => import('./MarkdownRenderer'));
 
 const user = {
@@ -58,7 +59,17 @@ const options = [
     { value: 'vanilla', label: 'Vanilla' }
 ]
 
-export default function AppliactionLayout(props) {
+interface ISearchOptions {
+    value: string,
+    label: string,
+}
+
+interface IAppliactionLayoutProps {
+    term: ITerm,
+    searchOptions: ISearchOptions[],
+}
+
+export default function AppliactionLayout({ term, searchOptions }: IAppliactionLayoutProps) {
     return (
         <div className=" bg-gray-50">
             <Popover as="header" className="pb-24 bg-indigo-500">
@@ -78,7 +89,7 @@ export default function AppliactionLayout(props) {
                                             <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                                                 <SearchIcon className="h-5 w-5" aria-hidden="true" />
                                             </div>
-                                            <SelectSearch options={props.searchOptions} inputId='searchSmall' />
+                                            <SelectSearch options={searchOptions} inputId='searchSmall' />
                                             {/* <input
                                                 id="search"
                                                 className="block w-full bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
@@ -96,7 +107,7 @@ export default function AppliactionLayout(props) {
                                 <div className="grid grid-cols-3 gap-8 items-center">
                                     <div className="col-span-2">
                                         <nav className="flex space-x-4 text-white">
-                                            <Breadcrumbs></Breadcrumbs>
+                                            <Breadcrumbs {...term} />
                                             {/* {navLinks.map((link) => (
                                                 <a
                                                     key={link.title}
@@ -121,7 +132,7 @@ export default function AppliactionLayout(props) {
                                                 <div className="pointer-events-none absolute inset-y-0 left-0 pl-3 flex items-center">
                                                     <SearchIcon className="h-5 w-5" aria-hidden="true" />
                                                 </div>
-                                                <SelectSearch options={props.searchOptions} inputId='searchBig' />
+                                                <SelectSearch options={searchOptions} inputId='searchBig' />
                                                 {/* <input
                                                     id="search"
                                                     className="block w-full bg-white bg-opacity-20 py-2 pl-10 pr-3 border border-transparent rounded-md leading-5 text-gray-900 placeholder-white focus:outline-none focus:bg-opacity-100 focus:border-transparent focus:placeholder-gray-500 focus:ring-0 sm:text-sm"
@@ -272,7 +283,7 @@ export default function AppliactionLayout(props) {
                                 </h2> */}
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
                                     <div className="p-6">
-                                        <MarkdownRenderer content={props.content} />
+                                        <MarkdownRenderer content={term} />
                                     </div>
                                 </div>
                             </section>
@@ -292,9 +303,9 @@ export default function AppliactionLayout(props) {
                                                     shortname={DISQUS_SHORTNAME}
                                                     config={
                                                         {
-                                                            url: `${DOMAIN}/term/${props.content.slug}}`,
-                                                            identifier: props.content.slug,
-                                                            title: props.content.data.title,
+                                                            url: `${DOMAIN}/terms/${term.slug}}`,
+                                                            identifier: term.slug,
+                                                            title: term.data.title
                                                         }
                                                     }
                                                 />
@@ -319,17 +330,18 @@ export default function AppliactionLayout(props) {
                                 </div>
                             </section>
 
-                            <section aria-labelledby="section-2-title">
-                                <h2 className="sr-only" id="section-2-title">
-                                    Section title
-                                </h2>
-                                <div className="rounded-sm bg-white overflow-hidden shadow">
+                            {term.data.tags && term.data.tags.length > 0 && (
+                                <section aria-labelledby="section-2-title">
+                                    <h2 className="sr-only" id="section-2-title">
+                                        Section title
+                                    </h2>
+                                    <div className="rounded-sm bg-white overflow-hidden shadow">
 
-                                    <div className="p-6">
-                                        <RelatedTags />
+                                        <div className="p-6">
+                                            <RelatedTags {...term} />
+                                        </div>
                                     </div>
-                                </div>
-                            </section>
+                                </section>)}
                         </div>
 
                     </div>
@@ -337,14 +349,6 @@ export default function AppliactionLayout(props) {
 
                 </div>
             </main>
-            {/* <footer>
-                <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-                    <div className="border-t border-gray-200 py-8 text-sm text-gray-500 text-center sm:text-left">
-                        <span className="block sm:inline">&copy; 2021 Tailwind Labs Inc.</span>{' '}
-                        <span className="block sm:inline">All rights reserved.</span>
-                    </div>
-                </div>
-            </footer> */}
         </div >
     )
 }

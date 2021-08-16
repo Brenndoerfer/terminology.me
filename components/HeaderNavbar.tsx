@@ -11,6 +11,7 @@ import {
     ViewGridIcon,
     XIcon,
 } from '@heroicons/react/outline'
+import { BeakerIcon, CurrencyDollarIcon, CloudIcon, DatabaseIcon, CodeIcon, CubeIcon } from '@heroicons/react/outline'
 import { ChevronDownIcon } from '@heroicons/react/solid'
 import Link from 'next/link'
 import styles from './HeaderNavbar.module.css';
@@ -21,37 +22,44 @@ const solutions = [
     {
         name: 'Data Science',
         description: 'Get a better understanding of where your traffic is coming from.',
-        href: '#',
-        icon: ChartBarIcon,
-        color: 'blue',
+        href: '/data-science',
+        icon: BeakerIcon,
+        color: 'blue-600',
     },
     {
         name: 'Data Engineering',
         description: 'Speak directly to your customers in a more meaningful way.',
-        href: '#',
-        icon: CursorClickIcon,
-        color: 'red',
+        href: '/data-engineering',
+        icon: DatabaseIcon,
+        color: 'red-500',
     },
     {
         name: 'Software Engineering',
         description: "Your customers' data will be safe and secure.",
-        href: '#',
-        icon: ShieldCheckIcon,
-        color: 'blue',
+        href: '/software-engineering',
+        icon: CodeIcon,
+        color: 'teal-600',
     },
     {
         name: 'Business & Finance',
         description: "Connect with third-party tools that you're already using.",
-        href: '#',
-        icon: ViewGridIcon,
-        color: 'blue',
+        href: '/business-and-finance',
+        icon: CurrencyDollarIcon,
+        color: 'green-600',
     },
     {
         name: 'Cloud Technology',
         description: 'Build strategic funnels that will drive your customers to convert',
-        href: '#',
-        icon: RefreshIcon,
-        color: 'blue',
+        href: '/cloud',
+        icon: CloudIcon,
+        color: 'blueGray-500',
+    },
+    {
+        name: 'Blockchain',
+        description: 'Build strategic funnels that will drive your customers to convert',
+        href: '/blockchain',
+        icon: CubeIcon,
+        color: 'warmGray-500',
     },
 
 ]
@@ -59,17 +67,22 @@ const resources = [
     {
         name: 'Software Engineering',
         description: 'Unit tests, blue-green deloyments, etc.',
-        href: '#'
+        href: '/software-engineering'
     },
     {
         name: 'Business & Finance',
         description: 'EBITDA, credit default swaps, etc.',
-        href: '#',
+        href: '/business-and-finance',
     },
     {
         name: 'Cloud Technology',
         description: 'AWS, GCP, Azure, Databricks, etc.',
-        href: '#'
+        href: '/cloud'
+    },
+    {
+        name: 'Blockchain',
+        description: 'Ethereum, proof-of-work, etc.',
+        href: '/blockchain'
     },
 ]
 
@@ -81,6 +94,12 @@ export default function HeaderNavbar() {
 
     const scrollY = useScrollPosition(60)
 
+    const [open, setOpen] = useState(false)
+
+    const handleClose = () => {
+        setOpen(false)
+    }
+
 
     return (
         <div className="bg-white sticky top-0 z-30 border-b" id='top'>
@@ -88,7 +107,7 @@ export default function HeaderNavbar() {
                 <Popover className="relative">
                     {({ open }) => (
                         <>
-                            <div className={classNames("flex justify-between items-center md:justify-start md:space-x-10 px-4 sm:px-6 py-3", scrollY < 50 ? 'py-6' : '')}>
+                            <div className={classNames("flex justify-between items-center md:justify-start md:space-x-10 px-4 sm:px-6 py-4")}>
                                 <div>
                                     <Link href="/"><a className="flex">
                                         <div className="flex items-center">
@@ -179,12 +198,12 @@ export default function HeaderNavbar() {
                                                 </>
                                             )}
                                         </Popover> */}
-                                        <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                                        <Link href="/data-science"><a className="text-base font-medium text-gray-500 hover:text-gray-900">
                                             Data Science
-                                        </a>
-                                        <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                                        </a></Link>
+                                        <Link href="/data-engineering"><a className="text-base font-medium text-gray-500 hover:text-gray-900">
                                             Data Engineering
-                                        </a>
+                                        </a></Link>
 
                                         <Popover className="relative">
                                             {({ open }) => (
@@ -222,14 +241,16 @@ export default function HeaderNavbar() {
                                                             <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                                                                 <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
                                                                     {resources.map((item) => (
-                                                                        <a
-                                                                            key={item.name}
+                                                                        <Link key={item.name}
                                                                             href={item.href}
+                                                                        ><a
+                                                                            onClick={handleClose()}
                                                                             className="-m-3 p-3 block rounded-md hover:bg-gray-50"
                                                                         >
-                                                                            <p className="text-base font-medium text-gray-900">{item.name}</p>
-                                                                            <p className="mt-1 text-sm text-gray-500">{item.description}</p>
-                                                                        </a>
+                                                                                <p className="text-base font-medium text-gray-900">{item.name}</p>
+                                                                                <p className="mt-1 text-sm text-gray-500">{item.description}</p>
+                                                                            </a>
+                                                                        </Link>
                                                                     ))}
                                                                 </div>
                                                             </div>
@@ -240,9 +261,6 @@ export default function HeaderNavbar() {
                                         </Popover>
                                     </Popover.Group>
                                     <div className="flex items-center md:ml-12">
-                                        {/* <a href="#" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                                            Sign in
-                                        </a> */}
                                         <a
                                             href="#"
                                             className="ml-8 inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
@@ -285,16 +303,16 @@ export default function HeaderNavbar() {
                                             <div className="mt-8">
                                                 <nav className="grid gap-6">
                                                     {solutions.map((item) => (
-                                                        <a
-                                                            key={item.name}
-                                                            href={item.href}
-                                                            className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
-                                                        >
-                                                            <div className="flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-indigo-500 text-white">
-                                                                <item.icon className="h-6 w-6" aria-hidden="true" />
-                                                            </div>
-                                                            <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
-                                                        </a>
+                                                        <Link key={item.name}
+                                                            href={item.href}><a
+
+                                                                className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
+                                                            >
+                                                                <div className={`flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-${item.color} text-white`}>
+                                                                    <item.icon className="h-6 w-6" aria-hidden="true" />
+                                                                </div>
+                                                                <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
+                                                            </a></Link>
                                                     ))}
                                                 </nav>
                                             </div>
@@ -323,12 +341,13 @@ export default function HeaderNavbar() {
                                                 ))}
                                             </div> */}
                                             <div className="">
-                                                <a
-                                                    href="#"
+                                                <Link href="/contribute"><a
+
                                                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
                                                 >
                                                     Contribute
                                                 </a>
+                                                </Link>
                                                 {/* <p className="mt-6 text-center text-base font-medium text-gray-500">
                                                     Existing customer?{' '}
                                                     <a href="#" className="text-indigo-600 hover:text-indigo-500">

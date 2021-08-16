@@ -1,3 +1,5 @@
+import Image from 'next/image';
+
 export default function Stats() {
     return (
         <>
@@ -34,7 +36,8 @@ export default function Stats() {
                         </div>
                     </div>
                     <div className="lg:w-1/2 sm:w-1/3 w-full rounded-lg overflow-hidden mt-6 sm:mt-0">
-                        <img className="transform scale-75 h-full" src="/assets/static/landing/growing.svg" alt="stats" />
+                        {/* <img className="transform scale-75 h-full" src="/assets/static/landing/growing.svg" alt="stats" /> */}
+                        <Image src="/assets/static/landing/growing.svg" className="transform scale-90 h-full" layout="responsive" width="812" height="375" alt="stats image" />
                     </div>
                 </div>
             </section>

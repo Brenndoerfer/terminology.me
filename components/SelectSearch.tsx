@@ -50,7 +50,7 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
 
 
     const handleChange = value => {
-        let url = `/term/${value.value}`
+        let url = `/terms/${value.value}`
         router.push(url, undefined, { shallow: false })
     }
 

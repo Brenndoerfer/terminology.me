@@ -34,15 +34,16 @@ export default function MarkdownRenderer(content) {
                     </div>
                 </div>
 
+                <pre className="my-16 text-sm">
+                    {JSON.stringify(content, null, 2)}
+                </pre>
+
                 <ReactMarkdown
                     components={ArticleReactMarkdownComponents}
                     remarkPlugins={[unwrapImages, [remarkGfm, { singleTilde: false }], remarkMath]}
                     rehypePlugins={[rehypeKatex]}
                     children={content.content.content}
                 />
-                {/* <pre>
-                    {JSON.stringify(content, null, 4)}
-                </pre> */}
             </div>
         </>
     )

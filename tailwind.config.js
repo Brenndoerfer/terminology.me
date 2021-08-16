@@ -11,9 +11,11 @@ module.exports = {
             indigo: colors.indigo,
             red: colors.rose,
             yellow: colors.amber,
+            teal: colors.teal,
             green: colors.green,
             blue: colors.blue,
             blueGray: colors.blueGray,
+            warmGray: colors.warmGray,
             rose: colors.rose,
             orange: colors.orange,
 

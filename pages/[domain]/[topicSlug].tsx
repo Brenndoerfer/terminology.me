@@ -1,54 +1,50 @@
-import { getAllItems } from "../../lib/loader"
+import { getAllItems, getAuthors, getTerms } from "../../lib/loader"
 import HeaderNavbar from '../../components/HeaderNavbar';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
 import Newsletter from '../../components/Landing/Newsletter';
 import TermSuggestions from "../../components/Landing/TermSuggestions";
 import HeadMeta from "../../components/HeadMeta";
-import { Item } from "../../lib/IItemData";
+import { IAuthor, ITerm } from "../../lib/loaderInterface";
 import GoToTop from "../../components/GoToTop";
 import AppliactionLayout from '../../components/Term/ApplicationLayout';
 import dynamic from 'next/dynamic';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 
 
-export default function Term({ term, searchOptions }: { term: Item, searchOptions: Item[] }) {
+export default function Term({ data }) {
 
     return (
         <>
-            <HeadMeta title={term.data.title} term={true} />
-            <HeaderNavbar />
-            <Layout>
-                <AppliactionLayout content={term} searchOptions={searchOptions}></AppliactionLayout>
+            <Layout title="Authors" term={false}>
+                <pre>{JSON.stringify(data, null, 2)}</pre>
             </Layout>
-            <Newsletter />
-            <TermSuggestions title="You might also be interested in" css="pt-12" />
-            <Footer />
-            <GoToTop />
         </>
     )
 }
 
 export async function getStaticProps({ params }) {
-    const all = getAllItems()
-    const term = (all.filter(term => term.slug === params.slug))[0]
-    const searchOptions = all.map(term => { return { value: term.slug, label: term.data.title } })
+
+    // const authors = getAuthors()
+    // const author = authors.filter(author => author.slug === params.name)[0]
 
     return {
         props: {
-            searchOptions, term
+            data: params
         }
     }
 }
 
 export async function getStaticPaths() {
 
-    const allTerms = getAllItems()
+    const allTopics = [{ domain: 'data-science', slug: 'my-topic' }]
+
     return {
-        paths: allTerms.map((term) => {
+        paths: allTopics.map((topic) => {
             return {
                 params: {
-                    slug: term.slug
+                    domain: topic.domain,
+                    topicSlug: topic.slug,
                 }
             }
         }),

@@ -1,12 +1,12 @@
 ---
 title: "Prior Probability"
 domain: "ds"
-topics: []
+topics: ['bayesian statistics']
 author: "michael_brenndoerfer"
 created: "2021-08-10"
 updated: null
 draft: false
-tags: []
+tags: ['bayesian probability', 'statistical inference']
 references: [
 "https://www.investopedia.com/terms/p/prior_probability.asp",
 "https://en.wikipedia.org/wiki/Prior_probability",

@@ -1,46 +1,54 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { BeakerIcon, CurrencyDollarIcon, CloudIcon, DatabaseIcon, CodeIcon, CubeIcon } from '@heroicons/react/outline'
+import Link from 'next/link';
 
 const features = [
     {
         name: 'Data Science',
         description: 'Consequuntur omnis dicta cumque, inventore atque ab dolores aspernatur tempora ab doloremque.',
         icon: BeakerIcon,
-        color: 'blue',
+        color: 'blue-600',
+        href: '/data-science',
     },
     {
         name: 'Data Engineering',
         description:
             'Corporis quisquam nostrum nulla veniam recusandae temporibus aperiam officia incidunt at distinctio ratione.',
         icon: DatabaseIcon,
-        color: 'blue',
+        color: 'red-500',
+        href: '/data-engineering',
     },
     {
         name: 'Business & Finance',
         description:
             'Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.',
         icon: CurrencyDollarIcon,
-        color: 'blue',
+        color: 'green-600',
+        href: '/business-and-finance',
     },
     {
         name: 'Software Engineering',
         description:
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
         icon: CodeIcon,
-        color: 'blue',
+        color: 'teal-600',
+        href: '/software-engineering',
     },
     {
         name: 'Cloud Technology',
         description:
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
         icon: CloudIcon,
-        color: 'blue',
-    }, {
+        color: 'blueGray-500',
+        href: '/cloud',
+    },
+    {
         name: 'Blockchain',
         description:
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
         icon: CubeIcon,
-        color: 'gray',
+        color: 'warmGray-500',
+        href: '/blockchain',
     },
 ]
 
@@ -79,15 +87,17 @@ export default function Domains() {
                     </div>
                     <dl className="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">
                         {features.map((feature) => (
-                            <div key={feature.name}>
-                                <dt>
-                                    <div className="flex items-center justify-center h-12 w-12 rounded-md bg-indigo-500 text-white">
-                                        <feature.icon className="h-6 w-6" aria-hidden="true" />
-                                    </div>
-                                    <p className="mt-5 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
-                                </dt>
-                                <dd className="mt-2 text-base text-gray-500">{feature.description}</dd>
-                            </div>
+                            <Link href={feature.href} key={feature.name} passHref={true}>
+                                <div className="cursor-pointer hover:bg-white rounded-lg hover:shadow-sm p-6">
+                                    <dt>
+                                        <div className={`flex items-center justify-center h-12 w-12 rounded-md text-white bg-${feature.color} shadow-md`}>
+                                            <feature.icon className="h-6 w-6" aria-hidden="true" />
+                                        </div>
+                                        <p className="mt-5 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>
+                                    </dt>
+                                    <dd className="mt-2 text-base text-gray-500">{feature.description}</dd>
+                                </div>
+                            </Link>
                         ))}
                     </dl>
                 </div>

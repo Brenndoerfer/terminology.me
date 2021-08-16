@@ -1,6 +1,6 @@
 ---
 title: "Dimensionality Reduction"
-tags: ["principal component analysis", "pca"]
+tags: ["principal component analysis", "statistical inference"]
 domain: "ds"
 topics: []
 author: "michael_brenndoerfer"
@@ -9,7 +9,7 @@ updated: ""
 draft: false
 ---
 
-Dimensionality reduction aims to transform data from a high-dimensional space (many varriables) into a low-dimensional space (fewer variables) which still captures the essence of the data.
+Dimensionality reduction aims to transform data from a high-dimensional space (many variables) into a low-dimensional space (fewer variables) which still captures the essence of the data.
 
 ### Applications of dimensionality reduction
 

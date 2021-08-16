@@ -17,17 +17,18 @@ import Link from 'next/link';
 */
 const navigation = {
     solutions: [
-        { name: 'Data Science', href: '#' },
-        { name: 'Data Engineering', href: '#' },
-        { name: 'Software Engineering', href: '#' },
-        { name: 'Business & Finance', href: '#' },
-        { name: 'Cloud Technology', href: '#' },
+        { name: 'Data Science', href: '/data-science' },
+        { name: 'Data Engineering', href: '/data-enginering' },
+        { name: 'Software Engineering', href: '/software-engineering' },
+        { name: 'Business & Finance', href: '/finance' },
+        { name: 'Cloud Technology', href: '/cloud' },
+        { name: 'Blockchain', href: '/blockchain' },
     ],
     support: [
-        { name: 'About us', href: '#' },
-        { name: 'How to Contribute', href: '#' },
-        { name: 'All authors', href: '#' },
-        { name: 'Glossary', href: '#' },
+        { name: 'About', href: '/about' },
+        { name: 'How to Contribute', href: '/contribute' },
+        { name: 'Authors', href: '/authors' },
+        { name: 'Glossary', href: '/glossary' },
     ],
     company: [
         { name: 'About', href: '#' },
@@ -37,8 +38,8 @@ const navigation = {
         { name: 'Partners', href: '#' },
     ],
     legal: [
+        // { name: 'Buy me a coffee', href: '#' },
         { name: 'Contact', href: '#' },
-        { name: 'Support us', href: '#' },
         { name: 'Privacy', href: '#' },
     ],
     social: [
@@ -121,9 +122,11 @@ export default function Footer() {
                                     <ul className="mt-4 space-y-4">
                                         {navigation.solutions.map((item) => (
                                             <li key={item.name}>
-                                                <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                                                    {item.name}
-                                                </a>
+                                                <Link href={item.href}>
+                                                    <a className="text-base text-gray-500 hover:text-gray-900">
+                                                        {item.name}
+                                                    </a>
+                                                </Link>
                                             </li>
                                         ))}
                                     </ul>
@@ -133,9 +136,11 @@ export default function Footer() {
                                     <ul className="mt-4 space-y-4">
                                         {navigation.support.map((item) => (
                                             <li key={item.name}>
-                                                <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                                                    {item.name}
-                                                </a>
+                                                <Link href={item.href}>
+                                                    <a className="text-base text-gray-500 hover:text-gray-900">
+                                                        {item.name}
+                                                    </a>
+                                                </Link>
                                             </li>
                                         ))}
                                     </ul>
@@ -159,9 +164,11 @@ export default function Footer() {
                                     <ul className="mt-4 space-y-4">
                                         {navigation.legal.map((item) => (
                                             <li key={item.name}>
-                                                <a href={item.href} className="text-base text-gray-500 hover:text-gray-900">
-                                                    {item.name}
-                                                </a>
+                                                <Link href={item.href}>
+                                                    <a className="text-base text-gray-500 hover:text-gray-900">
+                                                        {item.name}
+                                                    </a>
+                                                </Link>
                                             </li>
                                         ))}
                                     </ul>
