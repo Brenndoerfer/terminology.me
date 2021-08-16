@@ -45,14 +45,6 @@ export default function HeadMeta({ title, term }: MetaProps) {
 
                 <link rel="icon" href="/favicon.ico" />
 
-                <script async src="https://www.googletagmanager.com/gtag/js?id=G-WG49HJC07Y"></script>
-                <script dangerouslySetInnerHTML={{
-                    __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-
-                    gtag('config', 'G-WG49HJC07Y');`}} />
 
             </Head>
 
