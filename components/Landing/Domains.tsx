@@ -1,5 +1,6 @@
 /* This example requires Tailwind CSS v2.0+ */
 import { BeakerIcon, CurrencyDollarIcon, CloudIcon, DatabaseIcon, CodeIcon, CubeIcon } from '@heroicons/react/outline'
+import classNames from 'classnames';
 import Link from 'next/link';
 
 const features = [
@@ -7,7 +8,7 @@ const features = [
         name: 'Data Science',
         description: 'Consequuntur omnis dicta cumque, inventore atque ab dolores aspernatur tempora ab doloremque.',
         icon: BeakerIcon,
-        color: 'blue-600',
+        color: 'bg-blue-600',
         href: '/data-science',
     },
     {
@@ -15,7 +16,7 @@ const features = [
         description:
             'Corporis quisquam nostrum nulla veniam recusandae temporibus aperiam officia incidunt at distinctio ratione.',
         icon: DatabaseIcon,
-        color: 'red-500',
+        color: 'bg-red-500',
         href: '/data-engineering',
     },
     {
@@ -23,7 +24,7 @@ const features = [
         description:
             'Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.',
         icon: CurrencyDollarIcon,
-        color: 'green-600',
+        color: 'bg-green-600',
         href: '/business-and-finance',
     },
     {
@@ -31,7 +32,7 @@ const features = [
         description:
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
         icon: CodeIcon,
-        color: 'teal-600',
+        color: 'bg-teal-600',
         href: '/software-engineering',
     },
     {
@@ -39,7 +40,7 @@ const features = [
         description:
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
         icon: CloudIcon,
-        color: 'blueGray-500',
+        color: 'bg-blueGray-500',
         href: '/cloud',
     },
     {
@@ -47,7 +48,7 @@ const features = [
         description:
             'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
         icon: CubeIcon,
-        color: 'warmGray-500',
+        color: 'bg-warmGray-500',
         href: '/blockchain',
     },
 ]
@@ -90,7 +91,7 @@ export default function Domains() {
                             <Link href={feature.href} key={feature.name} passHref={true}>
                                 <div className="cursor-pointer hover:bg-white rounded-lg hover:shadow-sm p-6">
                                     <dt>
-                                        <div className={`flex items-center justify-center h-12 w-12 rounded-md text-white bg-${feature.color} shadow-md`}>
+                                        <div className={classNames(`flex items-center justify-center h-12 w-12 rounded-md text-white shadow-md`, feature.color)}>
                                             <feature.icon className="h-6 w-6" aria-hidden="true" />
                                         </div>
                                         <p className="mt-5 text-lg leading-6 font-medium text-gray-900">{feature.name}</p>

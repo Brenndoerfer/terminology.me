@@ -1,3 +1,11 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ff02baee-522e-456e-a7fc-242739914b60/deploy-status)](https://app.netlify.com/sites/determined-fermat-3be022/deploys)
+
+# Terminology.me
+
+Compact and easy to understand explanations for the modern, cross-functional engineer
+
+## Work in progress
+
 - [ ] py and px in mobile view
 - [ ] navigation as Link and correct icons + colors
 

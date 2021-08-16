@@ -24,42 +24,42 @@ const solutions = [
         description: 'Get a better understanding of where your traffic is coming from.',
         href: '/data-science',
         icon: BeakerIcon,
-        color: 'blue-600',
+        color: 'bg-blue-600',
     },
     {
         name: 'Data Engineering',
         description: 'Speak directly to your customers in a more meaningful way.',
         href: '/data-engineering',
         icon: DatabaseIcon,
-        color: 'red-500',
+        color: 'bg-red-500',
     },
     {
         name: 'Software Engineering',
         description: "Your customers' data will be safe and secure.",
         href: '/software-engineering',
         icon: CodeIcon,
-        color: 'teal-600',
+        color: 'bg-teal-600',
     },
     {
         name: 'Business & Finance',
         description: "Connect with third-party tools that you're already using.",
         href: '/business-and-finance',
         icon: CurrencyDollarIcon,
-        color: 'green-600',
+        color: 'bg-green-600',
     },
     {
         name: 'Cloud Technology',
         description: 'Build strategic funnels that will drive your customers to convert',
         href: '/cloud',
         icon: CloudIcon,
-        color: 'blueGray-500',
+        color: 'bg-blueGray-500',
     },
     {
         name: 'Blockchain',
         description: 'Build strategic funnels that will drive your customers to convert',
         href: '/blockchain',
         icon: CubeIcon,
-        color: 'warmGray-500',
+        color: 'bg-warmGray-500',
     },
 
 ]
@@ -308,7 +308,7 @@ export default function HeaderNavbar() {
 
                                                                 className="-m-3 p-3 flex items-center rounded-lg hover:bg-gray-50"
                                                             >
-                                                                <div className={`flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md bg-${item.color} text-white`}>
+                                                                <div className={classNames(`flex-shrink-0 flex items-center justify-center h-10 w-10 rounded-md text-white`, item.color)}>
                                                                     <item.icon className="h-6 w-6" aria-hidden="true" />
                                                                 </div>
                                                                 <div className="ml-4 text-base font-medium text-gray-900">{item.name}</div>
