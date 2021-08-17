@@ -30,6 +30,7 @@ import { DISQUS_SHORTNAME, DOMAIN } from '../../lib/constants';
 import RelatedTags from './RelatedTags';
 import MarkdownRenderer from './MarkdownRenderer';
 import { ITerm } from '../../lib/loaderInterface';
+import { ISearchOptions } from '../SelectSearchInterface';
 // const MarkdownRenderer = dynamic(() => import('./MarkdownRenderer'));
 
 const user = {
@@ -58,11 +59,6 @@ const options = [
     { value: 'strawberry', label: 'Strawberry' },
     { value: 'vanilla', label: 'Vanilla' }
 ]
-
-interface ISearchOptions {
-    value: string,
-    label: string,
-}
 
 interface IAppliactionLayoutProps {
     term: ITerm,
@@ -179,11 +175,11 @@ export default function AppliactionLayout({ term, searchOptions }: IAppliactionL
                                             <div className="pt-3 pb-2">
                                                 <div className="flex items-center justify-between px-4">
                                                     <div>
-                                                        <img
+                                                        {/* <img
                                                             className="h-8 w-auto"
                                                             src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
                                                             alt="Workflow"
-                                                        />
+                                                        /> */}
                                                     </div>
                                                     <div className="-mr-2">
                                                         <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500">
@@ -228,7 +224,7 @@ export default function AppliactionLayout({ term, searchOptions }: IAppliactionL
                                             <div className="pt-4 pb-2">
                                                 <div className="flex items-center px-5">
                                                     <div className="flex-shrink-0">
-                                                        <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                                                        {/* <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" /> */}
                                                     </div>
                                                     <div className="ml-3 min-w-0 flex-1">
                                                         <div className="text-base font-medium text-gray-800 truncate">Rebecca Nicholas</div>
@@ -303,7 +299,7 @@ export default function AppliactionLayout({ term, searchOptions }: IAppliactionL
                                                     shortname={DISQUS_SHORTNAME}
                                                     config={
                                                         {
-                                                            url: `${DOMAIN}/terms/${term.slug}}`,
+                                                            url: `${DOMAIN}/term/${term.slug}}`,
                                                             identifier: term.slug,
                                                             title: term.data.title
                                                         }

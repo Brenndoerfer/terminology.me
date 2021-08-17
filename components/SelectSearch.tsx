@@ -5,6 +5,7 @@ import { useHotkeys } from 'react-hotkeys-hook';
 import Select from 'react-select';
 import { platformShortcut, handleEsc } from '../lib/platform';
 import classNames from 'classnames';
+import { TERM_PATH } from '../lib/constants';
 
 interface SelectSearchProps {
     options: { value: string, label: string }[],
@@ -50,7 +51,7 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
 
 
     const handleChange = value => {
-        let url = `/terms/${value.value}`
+        let url = `${TERM_PATH}/${value.value}`
         router.push(url, undefined, { shallow: false })
     }
 

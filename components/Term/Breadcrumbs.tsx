@@ -2,8 +2,9 @@
 import { HomeIcon } from '@heroicons/react/solid'
 import classNames from 'classnames';
 import Link from 'next/link';
+import { TERM_PATH } from '../../lib/constants';
 import { ITerm } from '../../lib/loaderInterface';
-import { captializeWords, domainShortcutToLongname } from '../../lib/transformer';
+import { captializeWords, domainShortcutToLongname, domainShortcutToDomainHref } from '../../lib/transformer';
 interface IBreadcrumb {
     name: string,
     href: string,
@@ -13,9 +14,12 @@ interface IBreadcrumb {
 const constructBreadcrumb = (props: ITerm): IBreadcrumb[] => {
 
     const pages: IBreadcrumb[] = []
+    let domainTopic: string = ''
+
 
     if (props.data.domain) {
         let domainLong = domainShortcutToLongname(props.data.domain)
+        domainTopic = domainShortcutToDomainHref(props.data.domain) || ''
 
         if (domainLong) {
             let domainLower = domainShortcutToLongname(props.data.domain)?.toLowerCase().replace(/ /g, '-').trim()
@@ -25,15 +29,23 @@ const constructBreadcrumb = (props: ITerm): IBreadcrumb[] => {
 
     if (props.data.topics && props.data.topics.length > 0) {
         if (props?.data?.type?.toLowerCase().trim() === 'term' || !props.data.type) { // default to term
+
+            if (domainTopic.length > 0) {
+                domainTopic = '/' + domainTopic
+            }
+
             let name = captializeWords(props.data.topics[0])
             let slug = name.toLowerCase().replace(/ /g, '-')
-            pages.push({ name: name, href: '/topics/' + slug, current: false })
+
+            const topicUrl: string = domainTopic + '/topics/' + slug
+
+            pages.push({ name: name, href: topicUrl, current: false })
         }
     }
 
     if (props?.data?.title) {
         if (props?.data?.type?.toLowerCase().trim() === 'term' || !props.data.type) { // default to term
-            pages.push({ name: props.data.title, href: '/terms/' + props.slug, current: true })
+            pages.push({ name: props.data.title, href: TERM_PATH + '/' + props.slug, current: true })
         }
     }
 

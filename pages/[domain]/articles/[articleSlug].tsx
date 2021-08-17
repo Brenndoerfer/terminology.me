@@ -19,7 +19,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            domain: params.title
+            domain: params.articleSlug
         }
     }
 }
@@ -38,7 +38,7 @@ export async function getStaticPaths() {
             return {
                 params: {
                     domain: article.domain,
-                    title: article.title,
+                    articleSlug: article.title,
                 }
             }
         }),

@@ -46,10 +46,10 @@ export default function Hero({ searchOptions }) {
                             <Typewriter
                                 onInit={(typewriter) => {
                                     typewriter
-                                        .typeString('What is...')
+                                        .typeString('What is')
                                         .pauseFor(500)
-                                        .deleteChars(3)
-                                        .changeDeleteSpeed(10)
+                                        // .deleteChars(3)
+                                        .changeDeleteSpeed(25)
 
                                         .typeString(' XGBoost?')
                                         .pauseFor(1500)

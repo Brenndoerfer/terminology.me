@@ -5,9 +5,6 @@ export const domainShortcutToLongname = (shortcut: string): string | null => {
     if (shortcutLower === 'ds') {
         return 'Data Science'
     }
-    if (shortcutLower === 'mle') {
-        return 'Machine Learning'
-    }
     if (shortcutLower === 'de') {
         return 'Data Engineering'
     }
@@ -20,7 +17,7 @@ export const domainShortcutToLongname = (shortcut: string): string | null => {
     if (shortcutLower === 'cloud') {
         return 'Cloud'
     }
-    return null
+    throw new Error(`Cannot parse shortcut: ${shortcutLower}`)
 }
 
 export const domainShortcutToDomainHref = (shortcut: string): string | null => {
@@ -42,7 +39,8 @@ export const domainShortcutToDomainHref = (shortcut: string): string | null => {
     if (shortcutLower === 'cloud') {
         return 'cloud'
     }
-    return null
+    throw new Error(`Cannot parse shortcut: ${shortcutLower}`)
+
 }
 
 

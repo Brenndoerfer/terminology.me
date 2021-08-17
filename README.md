@@ -25,30 +25,46 @@ Compact and easy to understand explanations for the modern, cross-functional eng
 
 ## Page structure
 
-```text
-DONE  / (landing page)
+#### Home
 
-DONE  /terms
-DONE  /terms/:slug (e.g. /terms/dimensionality-reduction)
+- [ ] / (landing page)
 
-/glossary
-/glossary/:char (e.g. /glossary/a)
+#### Terms
 
-/glossary/:domain (e.g. /glossary/data-science)
-/glossary/:domain/:char (e.g. /glossary/data-science/a)
+- [x] /terms
+- [ ] /terms/:slug (e.g. /term/dimensionality-reduction)
 
-DONE /authors
-DONE /authors/:name (e.g. /author/michael_brenndoerfer)
+#### Glossary
 
-/:domain (e.g. /data-science)
-/:domain/articles (all articles)
-/:domain/articles/:slug (e.g. /data-science/articles/how-to-use-xgboost-to-do-blabla)
+- [ ] /glossary
+- [ ] /glossary/:char (e.g. /glossary/a)
+- [ ] /glossary/:domain (e.g. /glossary/data-science)
+- [ ] /glossary/:domain/:char (e.g. /glossary/data-science/a)
 
-/:domain/:topic
+#### Authors
 
-/contact
-/contribute
-/donate
-/about
+- [ ] /authors
+- [ ] /authors/:name (e.g. /author/michael_brenndoerfer)
 
-```
+#### Domains
+
+- [ ] /:domain (e.g. /data-science)
+
+#### Articles
+
+- [ ] /:domain/articles (/data-science/articles)
+- [ ] /:domain/articles/:articleSlug (/data-science/articles/my-article)
+
+#### Topics
+
+- [ ] /:domain/topics (/data-science/topics)
+- [ ] /:domain/topics/:topicSlug (/data-science/topics/my-topic)
+
+#### Top-level pages
+
+- [x] /contact
+- [x] /contribute
+- [ ] /donate
+- [x] /about
+- [x] /privacy
+- [x] /newsletter-confirmation

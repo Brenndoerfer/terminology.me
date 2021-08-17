@@ -1,4 +1,8 @@
+import classNames from 'classnames';
 import Link from 'next/link';
+import { MAILCHIMP_SUBSCRIBE_URL } from '../lib/constants';
+import newsletterStyles from './Landing/Newsletter.module.css'
+
 /*
   This example requires Tailwind CSS v2.0+ 
   
@@ -39,8 +43,8 @@ const navigation = {
     ],
     legal: [
         // { name: 'Buy me a coffee', href: '#' },
-        { name: 'Contact', href: '#' },
-        { name: 'Privacy', href: '#' },
+        { name: 'Contact', href: '/contact' },
+        { name: 'Privacy', href: '/privacy' },
     ],
     social: [
         {
@@ -182,26 +186,30 @@ export default function Footer() {
                             <p className="mt-4 text-base text-gray-500">
                                 The latest news, articles, and resources
                             </p>
-                            <form className="mt-4 sm:flex sm:max-w-lg">
+                            <form action={MAILCHIMP_SUBSCRIBE_URL} method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" className="validate mt-4 sm:flex sm:max-w-lg" target="_blank" noValidate={false}>
                                 <label htmlFor="emailAddress" className="sr-only">
                                     Email address
                                 </label>
                                 <input
                                     type="email"
-                                    name="emailAddressNewsletterFooter"
-                                    id="emailAddressNewsletterFooter"
+                                    name="EMAIL"
+                                    id="mce-EMAIL"
                                     autoComplete="email"
                                     required
                                     className="appearance-none min-w-0 w-full bg-white border border-gray-300 rounded-md shadow-sm py-2 px-4 text-base text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:placeholder-gray-400"
-                                    placeholder="Enter your email"
+                                    placeholder="Enter your email ..."
                                 />
+                                <div className={classNames(newsletterStyles.footerOffset, 'w-0')} aria-hidden="true">
+                                    <input type="text" name="b_b9ae82b0a6fafbc07c69e34e8_3ac7447e35" tabIndex={-1} value="" onChange={() => null} />
+                                </div>
                                 <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                                    <button
+                                    <input
                                         type="submit"
                                         className="w-full bg-indigo-600 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                                    >
-                                        Subscribe
-                                    </button>
+                                        name="subscribe"
+                                        id="mc-embedded-subscribe"
+                                        value="Subscribe"
+                                    />
                                 </div>
                             </form>
                         </div>

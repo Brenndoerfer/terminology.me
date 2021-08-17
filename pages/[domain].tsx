@@ -1,6 +1,7 @@
 
 import dynamic from 'next/dynamic';
 import Layout from '../components/Layout';
+import { DOMAINS } from '../lib/constants';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 
 
@@ -26,17 +27,8 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
 
-    const domains = [
-        'data-science',
-        'data-engineering',
-        'software-engineering',
-        'business-and-finance',
-        'blockchain',
-        'cloud',
-    ];
-
     return {
-        paths: domains.map((domain) => {
+        paths: DOMAINS.map((domain) => {
             return {
                 params: {
                     domain: domain

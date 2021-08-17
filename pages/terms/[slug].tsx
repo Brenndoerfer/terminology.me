@@ -1,18 +1,13 @@
-import { getAllItems, getTerms } from "../../lib/loader"
-import HeaderNavbar from '../../components/HeaderNavbar';
-import Layout from '../../components/Layout';
-import Footer from '../../components/Footer';
-import Newsletter from '../../components/Landing/Newsletter';
-import TermSuggestions from "../../components/Landing/TermSuggestions";
-import HeadMeta from "../../components/HeadMeta";
-import { ITerm } from "../../lib/loaderInterface";
-import GoToTop from "../../components/GoToTop";
-import AppliactionLayout from '../../components/Term/ApplicationLayout';
 import dynamic from 'next/dynamic';
-// const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
+import Layout from '../../components/Layout';
+import { getTerms } from "../../lib/loader"
+import { ITerm } from "../../lib/loaderInterface";
+import { ISearchOptions } from '../../components/SelectSearchInterface';
+const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
+const TermSuggestions = dynamic(() => import('../../components/Landing/TermSuggestions'));
 
 
-export default function Term({ searchOptions, termWithTags }: { termWithTags: ITerm, searchOptions: ITerm[] }) {
+export default function Term({ searchOptions, termWithTags }: { termWithTags: ITerm, searchOptions: ISearchOptions[] }) {
 
     return (
         <>
