@@ -1,27 +1,17 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ff02baee-522e-456e-a7fc-242739914b60/deploy-status)](https://app.netlify.com/sites/determined-fermat-3be022/deploys)
 
+[![Terminology.me logo](https://terminology.me/logo.png)](https://terminology.me)
+
 # Terminology.me
 
 Compact and easy to understand explanations for the modern, cross-functional engineer
 
 ## Work in progress
 
-- [ ] py and px in mobile view
-- [ ] navigation as Link and correct icons + colors
-
-- [ ] contribute page
-- [ ] contact page
-- [ ] author page
-- [ ] domains page
-- [ ] glossary page
-- [ ] about page
-<!-- - [ ] move content tab on term page to top on sm-view -->
-- [ ] add mailchimp newsletter integration integration
-- [ ] fix items in navbar when in screen=md
-- [ ] after start scroll change size of navbar
-- [ ] under the fold dynamic load content on main and slug page
-- [ ] replace img through Image
-- [ ] replace a through Link in navbar and footer
+- [ ] replace current mailchimp code through in-place form and react component
+- [ ] add dynamic load to disqus and other application components
+  - [ ] remove unused content
+- [ ] create hero most recent 4 adds programtically
 
 ## Page structure
 

@@ -3,7 +3,8 @@ import Layout from '../../components/Layout';
 import { getTerms } from "../../lib/loader"
 import { ITerm } from "../../lib/loaderInterface";
 import { ISearchOptions } from '../../components/SelectSearchInterface';
-const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
+import AppliactionLayout from '../../components/Term/ApplicationLayout';
+// const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 const TermSuggestions = dynamic(() => import('../../components/Landing/TermSuggestions'));
 
 
