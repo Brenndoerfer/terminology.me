@@ -5,11 +5,3 @@
 body {
     @apply bg-white;
 }
-
-footer>a {
-    @apply text-indigo-500
-}
-
-footer>a:hover {
-    @apply text-indigo-800 underline;
-}

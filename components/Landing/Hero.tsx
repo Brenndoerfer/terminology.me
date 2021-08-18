@@ -34,7 +34,7 @@ export default function Hero({ searchOptions }) {
 
     return (
         <>
-            <section className="bg-white">
+            <section className="">
 
                 <div className="container mx-auto flex md:flex-row flex-col px-4 sm:px-6 py-16 sm:py-24">
 

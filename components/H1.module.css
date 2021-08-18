@@ -1,0 +1,11 @@
+.h1 {}
+
+.h1 h1 {
+    @apply text-4xl font-extrabold mb-2 text-gray-700;
+}
+
+@screen sm {
+    .h1 h1 {
+        @apply text-5xl;
+    }
+}

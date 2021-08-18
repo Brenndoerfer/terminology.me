@@ -1,5 +1,3 @@
-import Image from 'next/image';
-import Link from 'next/link'
 import dynamic from 'next/dynamic';
 import styles from './MarkdownRenderer.module.css'
 import { parseISO, format } from 'date-fns'
@@ -34,9 +32,9 @@ export default function MarkdownRenderer(content) {
                     </div>
                 </div>
 
-                <pre className="my-16 text-sm">
+                {/* <pre className="my-16 text-sm">
                     {JSON.stringify(content, null, 2)}
-                </pre>
+                </pre> */}
 
                 <ReactMarkdown
                     components={ArticleReactMarkdownComponents}

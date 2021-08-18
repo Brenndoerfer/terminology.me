@@ -21,6 +21,7 @@ export interface ITermData {
     domain?: DomainEnum,
     tags?: string[];
     topics?: string[];
+    references?: string[];
 
     abrv?: string;
     created?: string;
@@ -46,7 +47,9 @@ export interface IAuthor {
     slug: string,
     firstname: string,
     lastname: string,
-    intro?: string
+    img?: string,
+    profile?: string
+
     email?: string,
     github?: string,
     linkedin?: string,

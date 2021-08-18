@@ -9,7 +9,9 @@ Compact and easy to understand explanations for the modern, cross-functional eng
 ## Work in progress
 
 - [ ] replace current mailchimp code through in-place form and react component
-- [x] add dynamic load to disqus and other application components
+- [x] Improve initial terms speed up
+  - [ ] defer css load
+  - [ ] defer disquss load
   - [x] remove unused content
 - [ ] create hero most recent 4 adds programtically
 

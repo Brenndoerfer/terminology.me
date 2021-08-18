@@ -8,7 +8,7 @@ interface TermSuggestionsProp {
 export default function TermSuggestions({ title, css }: TermSuggestionsProp) {
     return (
         <>
-            <section className={classNames('text-gray-600 body-font bg-white ', css)}>
+            <section className={classNames('text-gray-600 body-font ', css)}>
                 <div className="container mx-auto px-4 sm:px-6 pb-16 sm:pb-24">
                     {/* <div className="flex flex-col mb-4">
                         <div className="h-1 bg-gray-200 rounded overflow-hidden">
@@ -25,7 +25,7 @@ export default function TermSuggestions({ title, css }: TermSuggestionsProp) {
                     </div>
                     <div className="flex flex-wrap -m-4">
                         <div className="xl:w-1/4 md:w-1/2 p-4">
-                            <div className="bg-blue-50 p-6 rounded-lg">
+                            <div className="bg-blue-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition duration-300 ease-in-out">
                                 <h3 className="tracking-widest text-indigo-500 text-xs font-medium uppercase">Data Science</h3>
                                 <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Chichen Itza</h2>
                                 <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
@@ -38,7 +38,7 @@ export default function TermSuggestions({ title, css }: TermSuggestionsProp) {
                             </div>
                         </div>
                         <div className="xl:w-1/4 md:w-1/2 p-4">
-                            <div className="bg-green-50 p-6 rounded-lg">
+                            <div className="bg-green-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition duration-300 ease-in-out">
                                 <h3 className="tracking-widest text-indgo-500 text-xs font-medium uppercase">Finance</h3>
                                 <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Colosseum Roma</h2>
                                 <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
@@ -50,7 +50,7 @@ export default function TermSuggestions({ title, css }: TermSuggestionsProp) {
                             </div>
                         </div>
                         <div className="xl:w-1/4 md:w-1/2 p-4">
-                            <div className="bg-red-50 p-6 rounded-lg">
+                            <div className="bg-red-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition duration-300 ease-in-out">
                                 <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font uppercase">Data Engineering</h3>
                                 <h2 className="text-lg text-gray-900 font-medium title-font mb-4">Great Pyramid of Giza</h2>
                                 <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
@@ -62,7 +62,7 @@ export default function TermSuggestions({ title, css }: TermSuggestionsProp) {
                             </div>
                         </div>
                         <div className="xl:w-1/4 md:w-1/2 p-4">
-                            <div className="bg-indigo-50 p-6 rounded-lg">
+                            <div className="bg-indigo-50 p-6 rounded-lg border border-gray-200 hover:shadow-md transition duration-300 ease-in-out">
                                 <h3 className="tracking-widest text-indigo-500 text-xs font-medium title-font">SUBTITLE</h3>
                                 <h2 className="text-lg text-gray-900 font-medium title-font mb-4">San Francisco</h2>
                                 <p className="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>

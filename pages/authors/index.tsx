@@ -1,4 +1,4 @@
-import { getAllItems, getAuthors, getTerms } from "../../lib/loader"
+import { getAuthors, getTerms } from "../../lib/loader"
 import HeaderNavbar from '../../components/HeaderNavbar';
 import Layout from '../../components/Layout';
 import Footer from '../../components/Footer';
@@ -10,25 +10,32 @@ import GoToTop from "../../components/GoToTop";
 import AppliactionLayout from '../../components/Term/ApplicationLayout';
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
+import StaticPageLayout from '../../components/StaticPageLayout';
+import Authors from '../../components/Authors';
+import H1 from '../../components/H1';
+import CTA from '../../components/CTA';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 
 
 export default function Term({ authors }: { authors: IAuthor[] }) {
-    console.log(authors);
+    // console.log(authors);
 
     return (
         <>
             <Layout title="Authors" term={false}>
-
-                {authors.map(author => (
-                    <>
-                        <div key={author.slug}>
-                            <Link href={'/authors/' + author.slug}><a>{author.slug}</a></Link>
-                            <pre>{JSON.stringify(author, null, 2)}</pre>
-                        </div>
-                    </>
-                )
-                )}
+                <StaticPageLayout>
+                    <H1>Authors</H1>
+                    <Authors authors={authors}></Authors>
+                </StaticPageLayout>
+                <div className="border-t border-gray-200">
+                    <CTA
+                        branded={true}
+                        title="Become an author"
+                        href="/contribute"
+                        actionText="Contribute now">
+                        Share your knowledge. Build expertise. Help others.
+                    </CTA>
+                </div>
             </Layout>
         </>
     )

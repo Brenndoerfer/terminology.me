@@ -19,6 +19,7 @@
 import classNames from 'classnames';
 import { MAILCHIMP_SUBSCRIBE_URL } from '../../lib/constants';
 import styles from './Newsletter.module.css'
+import MailchimpSubscribe from "react-mailchimp-subscribe";
 
 export default function Newsletter() {
 

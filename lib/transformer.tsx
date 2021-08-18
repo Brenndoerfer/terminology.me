@@ -8,6 +8,9 @@ export const domainShortcutToLongname = (shortcut: string): string | null => {
     if (shortcutLower === 'de') {
         return 'Data Engineering'
     }
+    if (shortcutLower === 'swe') {
+        return 'Software Engineering'
+    }
     if (shortcutLower === 'finance') {
         return 'Finance & Business'
     }
@@ -30,6 +33,9 @@ export const domainShortcutToDomainHref = (shortcut: string): string | null => {
     if (shortcutLower === 'de') {
         return 'data-engineering'
     }
+    if (shortcutLower === 'swe') {
+        return 'software-engineering'
+    }
     if (shortcutLower === 'finance') {
         return 'business-and-finance'
     }
@@ -40,6 +46,32 @@ export const domainShortcutToDomainHref = (shortcut: string): string | null => {
         return 'cloud'
     }
     throw new Error(`Cannot parse shortcut: ${shortcutLower}`)
+
+}
+
+export const domainHrefToLongname = (href: string): string | null => {
+    if (!href) return null;
+
+    let hrefLower = href.toLowerCase().trim();
+    if (hrefLower === 'data-science') {
+        return 'Data Science'
+    }
+    if (hrefLower === 'data-engineering') {
+        return 'Data Engineering'
+    }
+    if (hrefLower === 'software-engineering') {
+        return 'Software Engineering'
+    }
+    if (hrefLower === 'business-and-finance') {
+        return 'Business & Finance'
+    }
+    if (hrefLower === 'blockchain') {
+        return 'Blockchain'
+    }
+    if (hrefLower === 'cloud') {
+        return 'Cloud Technology'
+    }
+    throw new Error(`Cannot parse shortcut: ${hrefLower}`)
 
 }
 

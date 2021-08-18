@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 import { LayoutProps } from './Layout.interface';
 import HeaderNavbar from './HeaderNavbar';
 import HeadMeta from './HeadMeta';
+import classNames from 'classnames';
 const Footer = dynamic(() => import('./Footer'))
 const GoToTop = dynamic(() => import('./GoToTop'))
 
@@ -11,7 +12,7 @@ export default function Layout(props) {
         <>
             <HeadMeta title={props.title} term={props.term} />
             <HeaderNavbar />
-            <div className="bg-gray-50">
+            <div className={classNames("bg-gray-50")} >
                 {props.children}
             </div>
             <Footer />

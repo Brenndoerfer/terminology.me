@@ -139,7 +139,7 @@ export function loadAuthorFile(fileName: string): IAuthor {
 
 export function getAuthors(): IAuthor[] {
     const fileNames: string[] = getSlugsFromFilenames(authorsDir)
-    console.log(fileNames)
+    // console.log(fileNames)
 
     const allAuthors: IAuthor[] = fileNames.map((fileName) => loadAuthorFile(fileName))
 
