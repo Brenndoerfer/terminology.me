@@ -9,8 +9,8 @@ Compact and easy to understand explanations for the modern, cross-functional eng
 ## Work in progress
 
 - [ ] replace current mailchimp code through in-place form and react component
-- [ ] add dynamic load to disqus and other application components
-  - [ ] remove unused content
+- [x] add dynamic load to disqus and other application components
+  - [x] remove unused content
 - [ ] create hero most recent 4 adds programtically
 
 ## Page structure
@@ -22,14 +22,12 @@ Compact and easy to understand explanations for the modern, cross-functional eng
 #### Terms
 
 - [x] /terms
-- [ ] /terms/:slug (e.g. /term/dimensionality-reduction)
+- [ ] /terms/:slug (e.g. /terms/dimensionality-reduction)
 
 #### Glossary
 
 - [ ] /glossary
 - [ ] /glossary/:char (e.g. /glossary/a)
-- [ ] /glossary/:domain (e.g. /glossary/data-science)
-- [ ] /glossary/:domain/:char (e.g. /glossary/data-science/a)
 
 #### Authors
 

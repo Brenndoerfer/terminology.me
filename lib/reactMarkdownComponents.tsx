@@ -42,6 +42,13 @@ export const CodeRenderer = ({ node, inline, className, children, ...props }) =>
     }
 }
 
+// TODO
+/*
+ <h2 className="sr-only" id="section-1-title">
+                                    Section title
+                                </h2>
+*/
+
 export const ArticleReactMarkdownComponents = {
     code: CodeRenderer,
     img: ImageRenderer,
