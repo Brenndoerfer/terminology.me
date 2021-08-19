@@ -5,26 +5,24 @@ enum PostTypeEnum {
 
 enum DomainEnum {
     ds = 'ds',
-    ml = 'ml',
     de = 'de',
-    block = 'blockchain',
-    fb = 'fb',
+    swe = 'swe',
     finance = 'finance',
-    business = 'business',
-    cloud = 'cliud',
+    cloud = 'cloud',
+    block = 'block',
 }
 export interface ITermData {
     title: string;
     draft: boolean;
     type: PostTypeEnum;
+    created: string;
+    domain: DomainEnum,
 
-    domain?: DomainEnum,
     tags?: string[];
     topics?: string[];
     references?: string[];
 
     abrv?: string;
-    created?: string;
     updated?: string;
     author?: string;
 }

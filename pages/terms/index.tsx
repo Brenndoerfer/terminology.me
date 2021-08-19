@@ -1,13 +1,13 @@
 import Layout from '../../components/Layout';
 
 
-export default function Articles() {
+export default function Terms() {
 
     return (
         <>
-            <Layout title="Articles" term={false}>
+            <Layout title="Terms" term={false}>
 
-                <p>Articles</p>
+                <p>Terms</p>
             </Layout>
         </>
     )

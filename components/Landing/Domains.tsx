@@ -6,7 +6,7 @@ import Link from 'next/link';
 const features = [
     {
         name: 'Data Science',
-        description: 'Consequuntur omnis dicta cumque, inventore atque ab dolores aspernatur tempora ab doloremque.',
+        description: 'An interdisciplinary field that aims to extract actionable insights from data across a wide range of domains.',
         icon: BeakerIcon,
         color: 'bg-blue-600',
         href: '/data-science',
@@ -14,7 +14,7 @@ const features = [
     {
         name: 'Data Engineering',
         description:
-            'Corporis quisquam nostrum nulla veniam recusandae temporibus aperiam officia incidunt at distinctio ratione.',
+            'Architecture and performant use of data systems that reliably collect and process data across an organization.',
         icon: DatabaseIcon,
         color: 'bg-red-500',
         href: '/data-engineering',
@@ -22,7 +22,7 @@ const features = [
     {
         name: 'Business & Finance',
         description:
-            'Omnis, illo delectus? Libero, possimus nulla nemo tenetur adipisci repellat dolore eligendi velit doloribus mollitia.',
+            'Study, management, and creation of business processes and money with the goal to generate more value.',
         icon: CurrencyDollarIcon,
         color: 'bg-green-600',
         href: '/business-and-finance',
@@ -30,15 +30,15 @@ const features = [
     {
         name: 'Software Engineering',
         description:
-            'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
+            'Technologies and software engineering concepts brought together to build software that solves problems.',
         icon: CodeIcon,
-        color: 'bg-teal-600',
+        color: 'bg-orange-400',
         href: '/software-engineering',
     },
     {
         name: 'Cloud Technology',
         description:
-            'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
+            'Scalable server infrastructure and technology services that are available from anywhere in the world.',
         icon: CloudIcon,
         color: 'bg-blueGray-500',
         href: '/cloud',
@@ -46,7 +46,7 @@ const features = [
     {
         name: 'Blockchain',
         description:
-            'Veniam necessitatibus reiciendis fugit explicabo dolorem nihil et omnis assumenda odit? Quisquam unde accusantium.',
+            'Distributed ledger technology that acts like a database and decentralized application platform.',
         icon: CubeIcon,
         color: 'bg-warmGray-500',
         href: '/blockchain',
@@ -89,7 +89,7 @@ export default function Domains() {
                     <dl className="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">
                         {features.map((feature) => (
                             <Link href={feature.href} key={feature.name} passHref={true}>
-                                <div className="cursor-pointer hover:bg-white rounded-lg hover:shadow-sm p-6">
+                                <div className="cursor-pointer hover:bg-white hover:border-gray-100 border border-white hover-fade rounded-lg hover:shadow-sm p-6">
                                     <dt>
                                         <div className={classNames(`flex items-center justify-center h-12 w-12 rounded-md text-white shadow-md`, feature.color)}>
                                             <feature.icon className="h-6 w-6" aria-hidden="true" />

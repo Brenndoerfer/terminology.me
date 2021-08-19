@@ -1,20 +1,26 @@
 import dynamic from 'next/dynamic';
 import Layout from '../../components/Layout';
-import { getTerms } from "../../lib/loader"
+import { getMostRecentTerms, getTerms } from "../../lib/loader"
 import { ITerm } from "../../lib/loaderInterface";
 import { ISearchOptions } from '../../components/SelectSearchInterface';
 import AppliactionLayout from '../../components/Term/ApplicationLayout';
+import { ITermSuggestions } from '../../components/Landing/TermSuggestions';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 const TermSuggestions = dynamic(() => import('../../components/Landing/TermSuggestions'));
 
+interface ITermProps {
+    termWithTags: ITerm,
+    searchOptions: ISearchOptions[],
+    recentTerms: ITermSuggestions[]
+}
 
-export default function Term({ searchOptions, termWithTags }: { termWithTags: ITerm, searchOptions: ISearchOptions[] }) {
+export default function Term(props: ITermProps) {
 
     return (
         <>
-            <Layout title={termWithTags.data.title} term={true}>
-                <AppliactionLayout term={termWithTags} searchOptions={searchOptions}></AppliactionLayout>
-                <TermSuggestions title="You might also be interested in" css="pt-12" />
+            <Layout title={props.termWithTags.data.title} term={true}>
+                <AppliactionLayout term={props.termWithTags} searchOptions={props.searchOptions}></AppliactionLayout>
+                <TermSuggestions title="You might also be interested in" terms={props.recentTerms} css="pt-12" />
             </Layout>
         </>
     )
@@ -28,6 +34,7 @@ export async function getStaticProps({ params }) {
     const termList: ITerm[] = (all.filter(term => term.slug === params.slug))
     const searchOptions = all.map(term => { return { value: term.slug, label: term.data.title } })
     const term = termList[0];
+    const recentTerms = getMostRecentTerms()
 
     const allTitles: string[] = []
     await Promise.all(all.map(async (item) => {
@@ -43,7 +50,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            searchOptions, term, termWithTags
+            searchOptions, termWithTags, recentTerms
         }
     }
 }

@@ -38,7 +38,7 @@ const solutions = [
         description: "Your customers' data will be safe and secure.",
         href: '/software-engineering',
         icon: CodeIcon,
-        color: 'bg-teal-600',
+        color: 'bg-orange-400',
     },
     {
         name: 'Business & Finance',

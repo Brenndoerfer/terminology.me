@@ -5,3 +5,8 @@
 body {
     @apply bg-white;
 }
+
+.hover-fade {
+    @apply transition duration-300 ease-in-out;
+
+}
