@@ -12,6 +12,7 @@ export default function Layout(props) {
         <>
             <HeadMeta title={props.title} term={props.term} />
             <HeaderNavbar />
+            <div id='top'></div>
             <div className={classNames("bg-gray-50")} >
                 {props.children}
             </div>

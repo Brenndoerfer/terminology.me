@@ -1,7 +1,7 @@
 import classNames from 'classnames';
-import StaticPageLayout from '../StaticPageLayout';
-import H2 from '../H2';
-import { TERM_PATH } from '../../lib/constants';
+import StaticPageLayout from './StaticPageLayout';
+import H2 from './H2';
+import { TERM_PATH } from '../lib/constants';
 import Link from 'next/link';
 
 
@@ -28,7 +28,7 @@ export default function TermSuggestions(props: TermSuggestionsProp) {
                         {props.terms && props.terms.map((term) => ((
                             <div className="xl:w-1/4 md:w-1/2 p-4" key={term.title}>
                                 <Link href={`${TERM_PATH}/${term.slug}`}><a>
-                                    <div className="bg-indigo-50 p-4 rounded-lg border border-indigo-100 hover:shadow-sm hover:border-indigo-300 hover-fade">
+                                    <div className="bg-white p-4 rounded-md border border-gray-200 hover:shadow-sm hover:border-indigo-300 hover-fade hover:bg-indigo-50">
                                         <h3 className="tracking-wied text-indigo-500 text-xs font-medium uppercase">{term.domain}</h3>
                                         <h2 className="text-lg text-gray-900 font-medium title-font mt-1">{term.title}</h2>
                                     </div>

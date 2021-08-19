@@ -20,6 +20,8 @@ import classNames from 'classnames';
 import { MAILCHIMP_SUBSCRIBE_URL } from '../../lib/constants';
 import styles from './Newsletter.module.css'
 import MailchimpSubscribe from "react-mailchimp-subscribe";
+import React from 'react';
+import H2 from '../H2';
 
 export default function Newsletter() {
 
@@ -28,8 +30,9 @@ export default function Newsletter() {
             <div className="container mx-auto lg:flex lg:items-center px-4 sm:px-6 py-16 sm:py-24">
 
                 <div className="lg:w-0 lg:flex-1">
-                    <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Sign up for our newsletter</h2>
-                    <p className="mt-3 max-w-3xl text-lg text-gray-500">
+                    <H2 title="Sign up for our newsletter"></H2>
+                    {/* <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">Sign up for our newsletter</h2> */}
+                    <p className="-mt-10 max-w-3xl text-lg text-gray-500 ">
                         The latest news, articles, and resources
                     </p>
                 </div>
@@ -51,13 +54,13 @@ export default function Newsletter() {
                                 <input type="text" name="b_b9ae82b0a6fafbc07c69e34e8_3ac7447e35" tabIndex={-1} value="" onChange={() => null} />
                             </div>
                             <div className="mt-3 rounded-md shadow sm:mt-0 sm:ml-3 sm:flex-shrink-0">
-                                <input
+                                <a><input
                                     type="submit"
-                                    className="w-full flex items-center justify-center py-3 px-5 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                    className="btn w-full flex items-center justify-center py-3 px-5 border text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                                     name="subscribe"
                                     id="mc-embedded-subscribe"
                                     value="Subscribe"
-                                />
+                                /></a>
 
                             </div>
                         </form>

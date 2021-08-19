@@ -205,7 +205,7 @@ export default function Footer() {
                                 <div className="mt-3 rounded-md sm:mt-0 sm:ml-3 sm:flex-shrink-0">
                                     <input
                                         type="submit"
-                                        className="w-full bg-indigo-600 flex items-center justify-center border border-transparent rounded-md py-2 px-4 text-base font-medium text-white hover:bg-indigo-700 focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                                        className="btn w-full bg-indigo-600 flex items-center justify-center py-2 px-4 "
                                         name="subscribe"
                                         id="mc-embedded-subscribe"
                                         value="Subscribe"

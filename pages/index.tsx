@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import Layout from '../components/Layout';
 import React from 'react';
 import Hero from '../components/Landing/Hero';
-import TermSuggestions, { ITermSuggestions } from '../components/Landing/TermSuggestions';
+import TermSuggestions, { ITermSuggestions } from '../components/TermSuggestions';
 import { ITerm } from '../lib/loaderInterface';
 import { getMostRecentTerms, getTerms } from '../lib/loader';
 import { ISearchOptions } from '../components/SelectSearchInterface';
@@ -25,7 +25,7 @@ export default function Home(props: IHomeProps) {
         <>
             <Layout>
                 <Hero searchOptions={props.allSearchOptions} />
-                <TermSuggestions title="Most recent terms" terms={props.recentTerms} />
+                <TermSuggestions title="Most recent terms" underline={false} terms={props.recentTerms} />
                 <Domains />
                 {/* <TopicGallery /> */}
                 <Newsletter />

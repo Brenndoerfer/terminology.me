@@ -4,9 +4,9 @@ import { getMostRecentTerms, getTerms } from "../../lib/loader"
 import { ITerm } from "../../lib/loaderInterface";
 import { ISearchOptions } from '../../components/SelectSearchInterface';
 import AppliactionLayout from '../../components/Term/ApplicationLayout';
-import { ITermSuggestions } from '../../components/Landing/TermSuggestions';
+import { ITermSuggestions } from '../../components/TermSuggestions';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
-const TermSuggestions = dynamic(() => import('../../components/Landing/TermSuggestions'));
+const TermSuggestions = dynamic(() => import('../../components/TermSuggestions'));
 
 interface ITermProps {
     termWithTags: ITerm,

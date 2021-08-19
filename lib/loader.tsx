@@ -6,7 +6,7 @@ import { join } from 'path'
 import matter from 'gray-matter';
 import sha1 from 'js-sha1';
 import { ITerm, IMatterResult, IAuthor } from './loaderInterface';
-import { ITermSuggestions } from '../components/Landing/TermSuggestions';
+import { ITermSuggestions } from '../components/TermSuggestions';
 import { domainShortcutToLongname, domainShortcutToDomainHref } from './transformer';
 
 const termsDir = join(process.cwd(), 'content/terms')
@@ -104,7 +104,7 @@ export function getMostRecentTerms(): ITermSuggestions[] {
 export function loadAuthorFile(fileName: string): IAuthor {
     const { data, excerpt, content, realSlug } = matterReadFile(fileName, authorsDir);
 
-    const authorObj = { ...data, profile: excerpt } as IAuthor;
+    const authorObj = { ...data, profile: content } as IAuthor;
     authorObj.slug = realSlug;
 
     return authorObj
@@ -113,7 +113,9 @@ export function loadAuthorFile(fileName: string): IAuthor {
 
 export function getAuthors(): IAuthor[] {
     const fileNames: string[] = getSlugsFromFilenames(authorsDir)
-    const allAuthors: IAuthor[] = fileNames.map((fileName) => loadAuthorFile(fileName))
+    const allAuthors: IAuthor[] = fileNames
+        .map((fileName) => loadAuthorFile(fileName))
+        .sort((a1, a2) => (a1.id > a2.id ? 1 : -1))
 
     return allAuthors
 }

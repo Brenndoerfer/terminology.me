@@ -2,6 +2,8 @@
 import { BeakerIcon, CurrencyDollarIcon, CloudIcon, DatabaseIcon, CodeIcon, CubeIcon } from '@heroicons/react/outline'
 import classNames from 'classnames';
 import Link from 'next/link';
+import React from 'react';
+import H2 from '../H2';
 
 const features = [
     {
@@ -46,7 +48,7 @@ const features = [
     {
         name: 'Blockchain',
         description:
-            'Distributed ledger technology that acts like a database and decentralized application platform.',
+            'Distributed ledger technology that acts like a database and as a decentralized application platform.',
         icon: CubeIcon,
         color: 'bg-warmGray-500',
         href: '/blockchain',
@@ -82,9 +84,7 @@ export default function Domains() {
 
                 <div className="relative lg:grid lg:grid-cols-3 lg:gap-x-8">
                     <div className="lg:col-span-1">
-                        <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                            Terminology for the modern engineer
-                        </h2>
+                        <H2 title="Terminology for the modern engineer" underline={false}></H2>
                     </div>
                     <dl className="mt-10 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-8 sm:gap-y-10 lg:mt-0 lg:col-span-2">
                         {features.map((feature) => (

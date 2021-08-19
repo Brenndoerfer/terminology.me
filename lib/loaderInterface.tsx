@@ -42,6 +42,7 @@ export interface IMatterResult {
 }
 
 export interface IAuthor {
+    id: number,
     slug: string,
     firstname: string,
     lastname: string,

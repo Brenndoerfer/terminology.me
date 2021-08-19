@@ -23,7 +23,7 @@ export default function CTA(props: ICTAProps) {
                             <div className="inline-flex rounded-md shadow">
                                 <Link href={props.href}>
                                     <a
-                                        className="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
+                                        className="inline-flex items-center justify-center px-5 py-3 border  text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700"
                                     >
                                         {props.actionText}
                                     </a>
@@ -43,7 +43,7 @@ export default function CTA(props: ICTAProps) {
                         </p>
                         <Link href={props.href}>
                             <a
-                                className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
+                                className="mt-8 w-full inline-flex items-center justify-center px-5 py-3 border text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50 sm:w-auto"
                             >
                                 {props.actionText}
                             </a>

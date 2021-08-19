@@ -3,7 +3,7 @@ import classNames from 'classnames';
 import Link from 'next/link';
 
 interface IH1Props {
-    children: React.ReactNode,
+    children: string,
     css?: string,
     backHref?: string
 }
@@ -11,8 +11,8 @@ interface IH1Props {
 export default function H1(props: IH1Props) {
     return (
         <>
-            <div className={classNames(styles.h1, 'mb-6 sm:mb-12')}>
-                <h1>{props.children}</h1>
+            <div className={classNames(styles.h1, 'mb-6 sm:mb-12', 'anchor')}>
+                <h1 id={props.children.toString().toLowerCase().replace(/ /g, '-')}>{props.children}</h1>
                 <div className="h-2 w-20 bg-indigo-500"></div>
                 {
                     props.backHref ? (

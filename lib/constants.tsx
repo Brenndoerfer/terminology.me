@@ -8,6 +8,7 @@ export const TERM_PATH = '/terms'
 export const AUTHORS_PATH = '/authors'
 export const GLOSSARY_PATH = '/glossary'
 export const ARTICLE_PATH = '/articles'
+export const CONTRIBUTE_PATH = '/contribute'
 
 export const DOMAINS = [
     'data-science',
