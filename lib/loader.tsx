@@ -84,8 +84,14 @@ export function getTerms(): ITerm[] {
 
 }
 
+
+/* 
+ TODO: domain filter
+ TODO: don't slice 0,4. Filter first, then slice. Then fill up with empty fields
+*/
 export function getMostRecentTerms(): ITermSuggestions[] {
     // console.log(typeof ALL_TERMS);
+
 
     return ALL_TERMS
         .sort((term1, term2) => (term1.data.created > term2.data.created ? 1 : -1))
@@ -94,6 +100,7 @@ export function getMostRecentTerms(): ITermSuggestions[] {
             return {
                 title: item.data.title,
                 slug: item.slug,
+                domainShort: item.data.domain,
                 domain: domainShortcutToLongname(item.data.domain),
                 domainHref: domainShortcutToDomainHref(item.data.domain),
             }

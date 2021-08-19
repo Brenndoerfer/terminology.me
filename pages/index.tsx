@@ -15,7 +15,6 @@ const Stats = dynamic(() => import('../components/Landing/Stats'))
 interface IHomeProps {
     recentTerms: ITermSuggestions[],
     allSearchOptions: ISearchOptions[],
-
 }
 
 export default function Home(props: IHomeProps) {
