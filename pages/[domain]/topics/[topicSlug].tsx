@@ -1,13 +1,13 @@
-import { getAllItems, getAuthors, getTerms } from "../../../lib/loader"
-import HeaderNavbar from '../../../components/HeaderNavbar';
-import Layout from '../../../components/Layout';
-import Footer from '../../../components/Footer';
-import Newsletter from '../../../components/Landing/Newsletter';
-import TermSuggestions from "../../../components/TermSuggestions";
-import HeadMeta from "../../../components/HeadMeta";
+import { getAuthors, getTerms } from "../../../lib/loader"
+import HeaderNavbar from '../../../components/shared/HeaderNavbar';
+import Layout from '../../../components/layout/Layout';
+import Footer from '../../../components/shared/Footer';
+import Newsletter from '../../../components/landing/Newsletter';
+import TermSuggestions from "../../../components/modular/TermSuggestions";
+import HeadMeta from "../../../components/shared/HeadMeta";
 import { IAuthor, ITerm } from "../../../lib/loaderInterface";
-import GoToTop from "../../../components/GoToTop";
-import AppliactionLayout from '../../../components/Term/ApplicationLayout';
+import GoToTop from "../../../components/shared/GoToTop";
+import AppliactionLayout from '../../../components/term/ApplicationLayout';
 import dynamic from 'next/dynamic';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 

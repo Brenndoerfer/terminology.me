@@ -1,7 +1,7 @@
-import Layout from '../components/Layout';
-import StaticPageLayout from '../components/StaticPageLayout';
-import H1 from '../components/H1';
-import CTA from '../components/CTA';
+import Layout from '../components/layout/Layout';
+import StaticPageLayout from '../components/layout/StaticPageLayout';
+import H1 from '../components/shared/H1';
+import CTA from '../components/modular/CTA';
 
 export default function Home() {
     return (

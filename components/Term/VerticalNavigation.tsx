@@ -12,7 +12,20 @@ function classNames(...classes) {
     return classes.filter(Boolean).join(' ')
 }
 
-export default function VerticalNavigation() {
+interface IVerticalNavigationProps {
+    content: string
+}
+
+function extractHeadings(content: string) {
+
+    // match strings starting with \n ### XXXXX \n
+
+}
+
+export default function VerticalNavigation(props: IVerticalNavigationProps) {
+
+    console.log(props)
+
     return (
         <>
             <div className="text-2xl font-bold">Content</div>

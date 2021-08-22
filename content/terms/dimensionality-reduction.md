@@ -4,8 +4,8 @@ tags: ["principal component analysis", "statistical inference"]
 domain: "ds"
 topics: []
 author: "michael_brenndoerfer"
-created: ""
-updated: ""
+created: "2021-08-05"
+updated: "2021-08-12"
 draft: false
 ---
 

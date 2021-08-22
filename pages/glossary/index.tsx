@@ -1,4 +1,4 @@
-import Layout from '../../components/Layout';
+import Layout from '../../components/layout/Layout';
 import { GLOSSARY_PATH } from '../../lib/constants';
 import Link from 'next/link';
 

@@ -69,7 +69,7 @@ export default function Articles() {
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
                     </p>
                 </div> */}
-                <div className="mt-12  mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
+                <div className="mx-auto grid gap-8 lg:grid-cols-3 lg:max-w-none">
                     {posts.map((post) => (
                         <div key={post.title} className="flex flex-col rounded-lg border border-gray-100 shadow-sm overflow-hidden">
                             <div className="flex-shrink-0">

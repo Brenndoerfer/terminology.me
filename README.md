@@ -13,7 +13,12 @@ Compact and easy to understand explanations for the modern, cross-functional eng
   - [ ] defer css load
   - [ ] defer disquss load
   - [x] remove unused content
-- [ ] create hero most recent 4 adds programtically
+- [x] create hero most recent 4 adds programtically
+- [ ] terms page content table
+- [x] terms page authors
+
+- [ ] domains page add buttons
+- [ ] domains page topics 3x3 matrix or topics gallery
 
 ## Page structure
 

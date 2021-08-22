@@ -1,6 +1,6 @@
-import Layout from '../components/Layout';
-import H1 from '../components/H1';
-import StaticPageLayout from '../components/StaticPageLayout';
+import Layout from '../components/layout/Layout';
+import H1 from '../components/shared/H1';
+import StaticPageLayout from '../components/layout/StaticPageLayout';
 
 export default function Home() {
     return (

@@ -17,6 +17,7 @@ export interface ITermData {
     type: PostTypeEnum;
     created: string;
     domain: DomainEnum,
+    author: string;
 
     tags?: string[];
     topics?: string[];
@@ -24,7 +25,6 @@ export interface ITermData {
 
     abrv?: string;
     updated?: string;
-    author?: string;
 }
 
 export interface ITerm {

@@ -22,7 +22,7 @@ export default function GoToTop() {
     return (
         <>
             <Link href='#top' scroll={true}>
-                <a className={classNames(styles.scrollTopBtn, { [styles.showScrollTopBtn]: scrollPosition > 200 })} title="Go to top">
+                <a className={classNames('btn', styles.scrollTopBtn, { [styles.showScrollTopBtn]: scrollPosition > 200 })} title="Go to top">
                     <ArrowUpIcon className="inline text-white h-6" />
 
                 </a>

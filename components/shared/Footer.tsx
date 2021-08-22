@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import Link from 'next/link';
-import { MAILCHIMP_SUBSCRIBE_URL } from '../lib/constants';
-import newsletterStyles from './Landing/Newsletter.module.css'
+import { MAILCHIMP_SUBSCRIBE_URL } from '../../lib/constants';
+import newsletterStyles from '../landing/Newsletter.module.css'
 
 /*
   This example requires Tailwind CSS v2.0+ 

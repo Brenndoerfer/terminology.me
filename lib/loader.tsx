@@ -8,6 +8,7 @@ import sha1 from 'js-sha1';
 import { ITerm, IMatterResult, IAuthor } from './loaderInterface';
 import { ITermSuggestions } from '../components/TermSuggestions';
 import { domainShortcutToLongname, domainShortcutToDomainHref } from './transformer';
+import { ISearchOptions } from '../components/modular/SelectSearchInterface';
 
 const termsDir = join(process.cwd(), 'content/terms')
 const authorsDir = join(process.cwd(), 'content/authors')
@@ -127,6 +128,31 @@ export function getAuthors(): IAuthor[] {
     return allAuthors
 }
 
+export function getAuthorBySlug(authorSlug: string): IAuthor {
+    return getAuthors().filter(author => author.slug === authorSlug)[0]
+}
+
 export function getArticles() {
 
+}
+
+function INIT_ALL_TERMS() {
+    if (!ALL_TERMS) {
+        getTerms()
+    }
+}
+
+export function getAllSearchOptions(): ISearchOptions[] {
+    INIT_ALL_TERMS();
+    return ALL_TERMS.map(term => { return { value: term.slug, label: term.data.title } })
+}
+
+export function getDomainSearchOptions(domain: string): ISearchOptions[] {
+    INIT_ALL_TERMS();
+    return getDomainTerms(domain).map(term => { return { value: term.slug, label: term.data.title } })
+}
+
+export function getDomainTerms(domain: string): ITerm[] {
+    INIT_ALL_TERMS();
+    return ALL_TERMS.filter(term => term.data.domain === domain);
 }

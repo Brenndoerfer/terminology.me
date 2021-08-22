@@ -1,9 +1,9 @@
-import { IAuthor } from '../lib/loaderInterface';
+import { IAuthor } from '../../lib/loaderInterface';
 import Image from 'next/image'
 import Link from 'next/link';
 import { AiFillMail, AiFillHome, AiFillLinkedin, AiFillGithub } from 'react-icons/ai'
 import { FaStackOverflow } from 'react-icons/fa'
-import CTA from './CTA';
+import CTA from '../modular/CTA';
 
 interface IAuthorComponent {
     author: IAuthor;
@@ -23,6 +23,8 @@ export default function AuthorComponent(props: IAuthorComponent) {
                                         layout="responsive"
                                         width="100%"
                                         height="100%"
+                                        placeholder="blur"
+                                        blurDataURL={props.author.img}
                                         src={props.author.img}
                                         alt={`${props.author.firstname} ${props.author.lastname}`}
                                         className="rounded-full"

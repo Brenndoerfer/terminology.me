@@ -11,7 +11,7 @@ interface IH1Props {
 export default function H1(props: IH1Props) {
     return (
         <>
-            <div className={classNames(styles.h1, 'mb-6 sm:mb-12', 'anchor')}>
+            <div className={classNames(styles.h1, 'mb-6 sm:mb-12')}>
                 <h1 id={props.children?.toString().toLowerCase().replace(/ /g, '-')}>{props.children}</h1>
                 <div className="mt-1 h-2 w-20 bg-indigo-500"></div>
                 {

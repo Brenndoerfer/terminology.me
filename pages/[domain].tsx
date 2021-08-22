@@ -1,78 +1,66 @@
 
 import dynamic from 'next/dynamic';
-import Layout from '../components/Layout';
+import Layout from '../components/layout/Layout';
 import { DOMAINS, GLOSSARY_PATH } from '../lib/constants';
-import H1 from '../components/H1';
-import { domainHrefToLongname } from '../lib/transformer';
-import StaticPageLayout from '../components/StaticPageLayout';
+import H1 from '../components/shared/H1';
+import { domainHrefToLongname, domainHrefToShortname, domainShortcutToDomainHref } from '../lib/transformer';
+import StaticPageLayout from '../components/layout/StaticPageLayout';
 import TopicsList from '../components/TopicsList';
-import SelectSearch from '../components/SelectSearch';
+import SelectSearch from '../components/modular/SelectSearch';
 import React from 'react';
-import Newsletter from '../components/Landing/Newsletter';
+import Newsletter from '../components/landing/Newsletter';
 import Link from 'next/link';
-import Articles from '../components/Domain/Articles';
-import TermSuggestions, { ITermSuggestions } from '../components/TermSuggestions';
-import { getMostRecentTerms, getTerms } from '../lib/loader';
-import { ISearchOptions } from '../components/SelectSearchInterface';
-import Topics from '../components/Domain/Topics';
-import H2 from '../components/H2';
+import Articles from '../components/domain/Articles';
+import TermSuggestions, { ITermSuggestions } from '../components/modular/TermSuggestions';
+import { getDomainSearchOptions, getMostRecentTerms, getTerms } from '../lib/loader';
+import { ISearchOptions } from '../components/modular/SelectSearchInterface';
+import Topics from '../components/domain/Topics';
+import H2 from '../components/shared/H2';
+import SearchGrid from '../components/domain/SearchGrid';
+import Container from '../components/layout/Container';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 
 interface IDomainProps {
     recentTerms: ITermSuggestions[],
-    allSearchOptions: ISearchOptions[],
+    searchOptions: ISearchOptions[],
     domain: string,
-
 }
 
 export default function Domain(props: IDomainProps) {
 
 
-    const customStyles = {
-        // option: (provided, state) => ({
-        //     ...provided,
-        //     padding: 12,
-        // }),
-        control: (provided, state) => ({
-            ...provided,
-            padding: 12,
-            borderColor: '#ddd',
-            //     paddingTop: 12,
-            //     paddingBottom: 12,
-            //     fontSize: 20
-        })
-    }
-
-
     return (
         <>
             <Layout title="Authors" term={false}>
-                <StaticPageLayout>
+
+
+
+                <Container size="sm">
                     <H1>{domainHrefToLongname(props.domain) || ''}</H1>
+                    <SearchGrid domainHref={props.domain} searchOptions={props.searchOptions} />
+                </Container>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 lg:gap-8">
-                        {/* <div className="bg-indigo-500 h-40 col-span-2"></div> */}
-
-                        <div className="lg:col-span-2">
-                            <SelectSearch options={[]} styles={customStyles}></SelectSearch>
-                        </div>
-                        <Link href={`${GLOSSARY_PATH}/${props.domain}`}>
-                            <a className="">
-                                <div className="btn w-full p-4 lg:h-full flex items-center justify-center border ">All {domainHrefToLongname(props.domain)} Terms</div>
-                            </a>
-                        </Link>
-
-                    </div>
+                {/* <Container size="sm">
                     <Articles></Articles>
-                </StaticPageLayout>
-                <div className="">
-                    <TermSuggestions title={`Most recently added terms`} underline={true} terms={props.recentTerms} css="py-0 sm:py-0 " />
-                </div>
-                <StaticPageLayout>
-                    <H2 title={`${domainHrefToLongname(props.domain)} Topics`} underline={true}></H2>
-                    <Topics></Topics>
+                </Container> */}
 
-                </StaticPageLayout>
+
+                <Container size="sm">
+                    {props.recentTerms.length > 0 ? (
+                        <>
+                            <H2 underline={true}>{`Recent ${domainHrefToLongname(props.domain)?.toLowerCase()} terms`}</H2>
+                            <TermSuggestions terms={props.recentTerms} />
+                        </>
+                    ) : (
+                        <p>Content in progress</p>
+                    )}
+                </Container>
+
+
+                {/* <Container size="sm">
+                    <H2 underline={true}>{`${domainHrefToLongname(props.domain)} Topics`}</H2>
+                    <Topics></Topics>
+                </Container> */}
 
 
 
@@ -127,8 +115,6 @@ export default function Domain(props: IDomainProps) {
 export async function getStaticProps({ params }) {
 
     getTerms()
-    console.log(params);
-    console.log(getMostRecentTerms());
 
     const recentTerms = getMostRecentTerms()
         .filter(term => params.domain === term.domainHref);
@@ -138,7 +124,8 @@ export async function getStaticProps({ params }) {
     return {
         props: {
             domain: params.domain,
-            recentTerms: recentTerms
+            recentTerms: recentTerms,
+            searchOptions: getDomainSearchOptions(domainHrefToShortname(params.domain)),
         }
     }
 }

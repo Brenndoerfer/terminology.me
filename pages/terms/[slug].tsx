@@ -1,17 +1,21 @@
 import dynamic from 'next/dynamic';
-import Layout from '../../components/Layout';
-import { getMostRecentTerms, getTerms } from "../../lib/loader"
-import { ITerm } from "../../lib/loaderInterface";
-import { ISearchOptions } from '../../components/SelectSearchInterface';
-import AppliactionLayout from '../../components/Term/ApplicationLayout';
-import { ITermSuggestions } from '../../components/TermSuggestions';
+import Layout from '../../components/layout/Layout';
+import { getAuthorBySlug, getAuthors, getMostRecentTerms, getTerms } from "../../lib/loader"
+import { IAuthor, ITerm } from "../../lib/loaderInterface";
+import { ISearchOptions } from '../../components/modular/SelectSearchInterface';
+import AppliactionLayout from '../../components/term/ApplicationLayout';
+import { ITermSuggestions } from '../../components/modular/TermSuggestions';
+import Container from '../../components/layout/Container';
+import React from 'react';
+import H2 from '../../components/shared/H2';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
-const TermSuggestions = dynamic(() => import('../../components/TermSuggestions'));
+const TermSuggestions = dynamic(() => import('../../components/modular/TermSuggestions'));
 
 interface ITermProps {
     termWithTags: ITerm,
     searchOptions: ISearchOptions[],
-    recentTerms: ITermSuggestions[]
+    recentTerms: ITermSuggestions[],
+    author: IAuthor,
 }
 
 export default function Term(props: ITermProps) {
@@ -19,8 +23,13 @@ export default function Term(props: ITermProps) {
     return (
         <>
             <Layout title={props.termWithTags.data.title} term={true}>
-                <AppliactionLayout term={props.termWithTags} searchOptions={props.searchOptions}></AppliactionLayout>
-                <TermSuggestions title="You might also be interested in" terms={props.recentTerms} css="pt-12" />
+
+                <AppliactionLayout term={props.termWithTags} author={props.author} searchOptions={props.searchOptions}></AppliactionLayout>
+
+                <Container size="sm" css="pt-0 sm:pt-6">
+                    <H2 css="mb-6">You might be interested in</H2>
+                    <TermSuggestions terms={props.recentTerms} />
+                </Container>
             </Layout>
         </>
     )
@@ -32,9 +41,12 @@ export async function getStaticProps({ params }) {
 
     // returns data for the path
     const termList: ITerm[] = (all.filter(term => term.slug === params.slug))
+
     const searchOptions = all.map(term => { return { value: term.slug, label: term.data.title } })
     const term = termList[0];
+
     const recentTerms = getMostRecentTerms()
+    const author = getAuthorBySlug(term.data.author)
 
     const allTitles: string[] = []
     await Promise.all(all.map(async (item) => {
@@ -50,7 +62,7 @@ export async function getStaticProps({ params }) {
 
     return {
         props: {
-            searchOptions, termWithTags, recentTerms
+            searchOptions, termWithTags, recentTerms, author
         }
     }
 }
@@ -58,11 +70,12 @@ export async function getStaticProps({ params }) {
 export async function getStaticPaths() {
 
     const allTerms = getTerms()
+
     return {
         paths: allTerms.map((term) => {
             return {
                 params: {
-                    slug: term.slug
+                    slug: term.slug,
                 }
             }
         }),

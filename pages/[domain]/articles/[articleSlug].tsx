@@ -1,6 +1,6 @@
 
 import dynamic from 'next/dynamic';
-import Layout from '../../../components/Layout';
+import Layout from '../../../components/layout/Layout';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 
 

@@ -49,7 +49,7 @@ export const domainShortcutToDomainHref = (shortcut: string): string | null => {
 
 }
 
-export const domainHrefToLongname = (href: string): string | null => {
+export const domainHrefToLongname = (href: string | undefined): string | null => {
     if (!href) return null;
 
     let hrefLower = href.toLowerCase().trim();
@@ -75,6 +75,30 @@ export const domainHrefToLongname = (href: string): string | null => {
 
 }
 
+export const domainHrefToShortname = (href: string): string => {
+
+    let hrefLower = href.toLowerCase().trim();
+    if (hrefLower === 'data-science') {
+        return 'ds'
+    }
+    if (hrefLower === 'data-engineering') {
+        return 'de'
+    }
+    if (hrefLower === 'software-engineering') {
+        return 'swe'
+    }
+    if (hrefLower === 'business-and-finance') {
+        return 'finance'
+    }
+    if (hrefLower === 'blockchain') {
+        return 'blockchain'
+    }
+    if (hrefLower === 'cloud') {
+        return 'cloud'
+    }
+    throw new Error(`Cannot parse shortcut: ${hrefLower}`)
+
+}
 
 
 

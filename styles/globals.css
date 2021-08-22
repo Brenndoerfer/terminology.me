@@ -20,7 +20,7 @@ body {
 }
 
 .btn:hover {
-    @apply bg-indigo-700 shadow-md;
+    @apply bg-indigo-700 shadow-md border-indigo-700;
 }
 
 [id]::before {

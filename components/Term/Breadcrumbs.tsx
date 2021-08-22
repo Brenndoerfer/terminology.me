@@ -52,9 +52,13 @@ const constructBreadcrumb = (props: ITerm): IBreadcrumb[] => {
     return pages
 }
 
-export default function Breadcrumbs(term: ITerm) {
+interface IBreadcrumbsProps {
+    term: ITerm
+}
 
-    const pages = constructBreadcrumb(term);
+export default function Breadcrumbs(props: IBreadcrumbsProps) {
+
+    const pages = constructBreadcrumb(props.term);
 
     return (
         <nav className="flex" aria-label="Breadcrumb">

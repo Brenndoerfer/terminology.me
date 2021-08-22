@@ -3,9 +3,9 @@ import { useRouter } from 'next/dist/client/router';
 import { useEffect, useRef, useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import Select from 'react-select';
-import { platformShortcut, handleEsc } from '../lib/platform';
+import { platformShortcut, handleEsc } from '../../lib/platform';
 import classNames from 'classnames';
-import { TERM_PATH } from '../lib/constants';
+import { TERM_PATH } from '../../lib/constants';
 
 interface SelectSearchProps {
     options: { value: string, label: string }[],
@@ -48,11 +48,14 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
     const searchFieldRef = useRef(null);
     const router = useRouter()
     const [isOpen, setIsOpen] = useState<boolean>(true);
+    const [isLoading, setLoadingState] = useState(false);
 
 
     const handleChange = value => {
         let url = `${TERM_PATH}/${value.value}`
+        setLoadingState(true);
         router.push(url, undefined, { shallow: false })
+        setTimeout(() => setLoadingState(false), 2500) // TODO: change to more robust URL onChange
     }
 
     const handleShortcut = () => {
@@ -69,6 +72,7 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
             <Select
                 options={options}
                 ref={searchFieldRef}
+                isLoading={isLoading}
                 className={classNames(classes, 'rounded-sm')}
                 styles={customStyles}
                 placeholder={'I want to learn about ... ' + platformShortcut()}

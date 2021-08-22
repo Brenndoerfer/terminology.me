@@ -1,24 +1,13 @@
 import { getAuthors, getTerms } from "../../lib/loader"
-import HeaderNavbar from '../../components/HeaderNavbar';
-import Layout from '../../components/Layout';
-import Footer from '../../components/Footer';
-import Newsletter from '../../components/Landing/Newsletter';
-import TermSuggestions from "../../components/TermSuggestions";
-import HeadMeta from "../../components/HeadMeta";
+import Layout from '../../components/layout/Layout';
 import { IAuthor, ITerm } from "../../lib/loaderInterface";
-import GoToTop from "../../components/GoToTop";
-import AppliactionLayout from '../../components/Term/ApplicationLayout';
-import dynamic from 'next/dynamic';
-import Link from 'next/link';
-import StaticPageLayout from '../../components/StaticPageLayout';
-import Authors from '../../components/Authors';
-import H1 from '../../components/H1';
-import CTA from '../../components/CTA';
-// const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
+import StaticPageLayout from '../../components/layout/StaticPageLayout';
+import Authors from '../../components/pages/Authors';
+import H1 from '../../components/shared/H1';
+import CTA from '../../components/modular/CTA';
 
 
-export default function Term({ authors }: { authors: IAuthor[] }) {
-    // console.log(authors);
+export default function AuthorsComponent({ authors }: { authors: IAuthor[] }) {
 
     return (
         <>
