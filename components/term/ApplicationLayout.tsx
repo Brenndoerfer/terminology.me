@@ -148,8 +148,8 @@ export default function AppliactionLayout(props: IAppliactionLayoutProps) {
 
                                     <div className="p-6">
                                         <VerticalNavigation content={props.term.content} />
-                                        <hr className="py-4" />
-                                        <TermTableOfContents></TermTableOfContents>
+                                        {/* <hr className="py-4" />
+                                        <TermTableOfContents></TermTableOfContents> */}
                                     </div>
                                 </div>
                             </section>

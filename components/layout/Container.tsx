@@ -10,13 +10,16 @@ interface IContainerProps {
 }
 
 function getSize(size: SizeTypes | undefined): string {
-    if (!size) return ''
+
+    let defaultSize = 'py-10 sm:py-20'
+
+    if (!size) return defaultSize
 
     switch (size) {
-        case "sm": return "py-6 sm:py-12";
+        case "sm": return defaultSize;
         case "md": return "py-10 sm:py-20";
         case "lg": return "py-16 sm:py-24";
-        default: return "";
+        default: return defaultSize;
     }
 }
 
