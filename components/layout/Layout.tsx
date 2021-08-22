@@ -1,5 +1,4 @@
 import dynamic from 'next/dynamic';
-import { LayoutProps } from './Layout.interface';
 import HeaderNavbar from '../shared/HeaderNavbar';
 import HeadMeta from '../shared/HeadMeta';
 import classNames from 'classnames';
