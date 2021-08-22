@@ -1,10 +1,10 @@
 import { getAuthors, getTerms } from "../../lib/loader"
 import Layout from '../../components/layout/Layout';
 import { IAuthor, ITerm } from "../../lib/loaderInterface";
-import StaticPageLayout from '../../components/layout/StaticPageLayout';
 import Authors from '../../components/pages/Authors';
 import H1 from '../../components/shared/H1';
 import CTA from '../../components/modular/CTA';
+import Container from '../../components/layout/Container';
 
 
 export default function AuthorsComponent({ authors }: { authors: IAuthor[] }) {
@@ -12,10 +12,10 @@ export default function AuthorsComponent({ authors }: { authors: IAuthor[] }) {
     return (
         <>
             <Layout title="Authors" term={false}>
-                <StaticPageLayout>
+                <Container>
                     <H1>Authors</H1>
                     <Authors authors={authors}></Authors>
-                </StaticPageLayout>
+                </Container>
                 <div className="border-t border-gray-200">
                     <CTA
                         branded={true}

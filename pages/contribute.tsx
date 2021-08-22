@@ -1,15 +1,15 @@
 import Layout from '../components/layout/Layout';
-import StaticPageLayout from '../components/layout/StaticPageLayout';
 import H1 from '../components/shared/H1';
 import CTA from '../components/modular/CTA';
+import Container from '../components/layout/Container';
 
 export default function Home() {
     return (
         <>
             <Layout title="How to contribute">
-                <StaticPageLayout>
+                <Container>
                     <H1>Contribute</H1>
-                </StaticPageLayout>
+                </Container>
                 <CTA
                     branded={true}
                     title="You are in good company"
