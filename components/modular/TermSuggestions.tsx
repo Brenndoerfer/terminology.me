@@ -1,6 +1,3 @@
-import classNames from 'classnames';
-import StaticPageLayout from '../layout/StaticPageLayout';
-import H2 from '../shared/H2';
 import { TERM_PATH } from '../../lib/constants';
 import Link from 'next/link';
 
