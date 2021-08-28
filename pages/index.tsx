@@ -68,6 +68,7 @@ export default function Home(props: IHomeProps) {
 
 export async function getStaticProps() {
     const allItems: ITerm[] = getTerms()
+    // console.log(allItems)
 
     const searchOptions = allItems.map(term => { return { value: term.slug, label: term.data.title } })
     const recentTerms = getMostRecentTerms();

@@ -112,7 +112,7 @@ export async function getStaticProps({ params }) {
     const recentTerms = getMostRecentTerms()
         .filter(term => params.domain === term.domainHref);
 
-    console.log(recentTerms);
+    // console.log(recentTerms);
 
     return {
         props: {

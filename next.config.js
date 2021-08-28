@@ -15,6 +15,7 @@ const withTM = require('next-transpile-modules')([
 
 module.exports = withPlugins([withTM], {
     reactStrictMode: true,
+    experimental: { css: true },
     typescript: {
         // !! WARN !!
         // Dangerously allow production builds to successfully complete even if

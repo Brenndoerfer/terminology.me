@@ -26,7 +26,7 @@
 }
 
 .rm p {
-    @apply my-2 text-gray-700;
+    @apply mt-4 mb-6 text-gray-700;
 }
 
 

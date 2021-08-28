@@ -1,7 +1,6 @@
 ---
 title: "Statistical Inference"
 abrv: null
-type: 'term'
 tags: []
 domain: "ds"
 topics: []

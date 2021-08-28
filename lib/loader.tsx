@@ -37,6 +37,7 @@ export function loadTermsFile(fileName: string) {
     if (excerpt) {
         contentWithoutExcerpt = content.replace(excerpt, '').replace('---\n', '')
     }
+    contentWithoutExcerpt = `## Definition of ${data.title}` + contentWithoutExcerpt
 
     if (data.title.length == 0) {
         data.title = realSlug.replace(/-/g, ' ');
@@ -61,6 +62,7 @@ var ALL_TERMS: ITerm[];
 
 export function getTerms(): ITerm[] {
     const fileNames: string[] = getSlugsFromFilenames(termsDir)
+    // console.log(fileNames)
 
     const allTerms: ITerm[] = fileNames
         .map(fileName => loadTermsFile(fileName)) // load every file

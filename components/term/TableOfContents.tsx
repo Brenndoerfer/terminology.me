@@ -1,64 +1,101 @@
+import classNames from "classnames";
 import { useEffect, useRef, useState } from "react";
+import { ITerm } from "../../lib/loaderInterface";
 import styles from './TableOfContents.module.css'
 
-const getNestedHeadings = (headingElements) => {
-    const nestedHeadings = [];
+// const getNestedHeadings = (headingElements) => {
+//     const nestedHeadings = [];
 
-    headingElements.forEach((heading, index) => {
-        const { innerText: title, id } = heading;
+//     headingElements.forEach((heading, index) => {
+//         const { innerText: title, id } = heading;
 
-        if (heading.nodeName === "H2") {
-            nestedHeadings.push({ id, title, items: [] });
-        } else if (heading.nodeName === "H3" && nestedHeadings.length > 0) {
-            nestedHeadings[nestedHeadings.length - 1].items.push({
-                id,
-                title,
-            });
+//         if (heading.nodeName === "H2") {
+//             nestedHeadings.push({ id, title, items: [] });
+//         } else if (heading.nodeName === "H3" && nestedHeadings.length > 0) {
+//             nestedHeadings[nestedHeadings.length - 1].items.push({
+//                 id,
+//                 title,
+//             });
+//         }
+//     });
+
+//     return nestedHeadings;
+// };
+
+function extractHeadings(content: string) {
+
+    const headlineFilter = /(#{2,6})\s+(\w.*)/g
+    const headlinesAll = [...content.matchAll(headlineFilter)]
+    const headlines = headlinesAll.map(item => (
+        {
+            level: item[1].length,
+            title: item[2],
+            id: item[2].toLowerCase().trim().replace(/ /g, '-'),
+            // current: false,
         }
-    });
+    ))
+    return headlines
 
-    return nestedHeadings;
-};
+}
 
-
-const useHeadingsData = () => {
+const useHeadingsData = (term: ITerm) => {
     const [nestedHeadings, setNestedHeadings] = useState([]);
 
     useEffect(() => {
-        const headingElements = Array.from(
-            document.querySelectorAll("h2, h3")
-        );
+        // const headingElements = Array.from(
+        //     document.querySelectorAll("h2, h3")
+        // );
 
-        const newNestedHeadings = getNestedHeadings(headingElements);
+        // const newNestedHeadings = getNestedHeadings(headingElements);
+
+        const newNestedHeadings = extractHeadings(term.content)
         setNestedHeadings(newNestedHeadings);
+
     }, []);
 
     return { nestedHeadings };
 };
 
 const Headings = ({ headings, activeId }) => (
-    <ul>
-        {headings.map((heading) => (
-            <li key={heading.id} className={heading.id === activeId ? styles.active : ""}>
-                <a href={`#${heading.id}`} className={styles.title}>{heading.title}</a>
-                {heading.items.length > 0 && (
-                    <ul>
-                        {heading.items.map((child) => (
-                            <li key={child.id} className={child.id === activeId ? styles.active : ""}>
-                                <a href={`#${child.id}`}>{child.title.toLowerCase()}</a>
-                            </li>
-                        ))}
-                    </ul>
+    // <ul className={styles.toc}>
+    //     {headings.map((heading) => (
+    //         <li key={heading.id} className={heading.id === activeId ? styles.active : ""}>
+    //             <a href={`#${heading.id}`} className={styles.title}>{heading.title}</a>
+    //             {heading.items.length > 0 && (
+    //                 <ul>
+    //                     {heading.items.map((child) => (
+    //                         <li key={child.id} className={child.id === activeId ? styles.active : ""}>
+    //                             <a href={`#${child.id}`}>{child.title.toLowerCase()}</a>
+    //                         </li>
+    //                     ))}
+    //                 </ul>
+    //             )}
+    //         </li>
+    //     ))}
+    // </ul>
+    <div>
+
+        {headings.map((item) => (
+            <a
+                key={item.id}
+                href={`#${item.id}`}
+                className={classNames(
+                    item.id == activeId ? 'bg-indigo-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+                    'flex items-center px-3 py-2 text-sm font-medium rounded-md'
                 )}
-            </li>
+                aria-current={item.current ? 'page' : undefined}
+            >
+                <span className="truncate">{item.title}</span>
+            </a>
         ))}
-    </ul>
+    </div>
 );
 
 const useIntersectionObserver = (setActiveId) => {
     const headingElementsRef = useRef({});
     useEffect(() => {
         const callback = (headings) => {
+
             headingElementsRef.current = headings.reduce((map, headingElement) => {
                 map[headingElement.target.id] = headingElement;
                 return map;
@@ -84,7 +121,7 @@ const useIntersectionObserver = (setActiveId) => {
         };
 
         const observer = new IntersectionObserver(callback, {
-            rootMargin: "0px 0px -40% 0px"
+            rootMargin: "-100px 0px 40% 0px"
         });
 
         const headingElements = Array.from(document.querySelectorAll("h2, h3"));
@@ -96,16 +133,37 @@ const useIntersectionObserver = (setActiveId) => {
 };
 
 
-export default function TermTableOfContents() {
+interface ITableOfContentsProp {
+    term: ITerm
+}
+
+export default function TermTableOfContents(props: ITableOfContentsProp) {
 
     const [activeId, setActiveId] = useState();
-
-    const { nestedHeadings } = useHeadingsData();
+    const nestedHeadings = extractHeadings(props.term.content)
     useIntersectionObserver(setActiveId);
+
+    // const { nestedHeadings } = useHeadingsData(props.term);
+    // const [nestedHeadings, setNestedHeadings] = useState([]);
+
+    // useEffect(() => {
+    //     // const headingElements = Array.from(
+    //     //     document.querySelectorAll("h2, h3")
+    //     // );
+
+    //     // const newNestedHeadings = getNestedHeadings(headingElements);
+
+    //     const newNestedHeadings = extractHeadings(term.content)
+    //     setNestedHeadings(newNestedHeadings);
+
+    // }, []);
+
 
 
     return (
         <>
+            <div className="text-2xl font-bold">Content</div>
+            <div className="h-1 w-10 bg-indigo-500 mb-4"></div>
             <nav aria-label="Table of contents">
                 <Headings headings={nestedHeadings} activeId={activeId} />
             </nav>

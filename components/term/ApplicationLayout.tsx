@@ -141,24 +141,18 @@ export default function AppliactionLayout(props: IAppliactionLayoutProps) {
                         {/* Content + Related terms: Right column  */}
                         <div className="grid grid-cols-1 gap-4 sticky top-28">
                             <section aria-labelledby="section-2-title">
-                                <h2 className="sr-only" id="section-2-title">
-                                    Section title
-                                </h2>
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
 
                                     <div className="p-6">
-                                        <VerticalNavigation content={props.term.content} />
-                                        {/* <hr className="py-4" />
-                                        <TermTableOfContents></TermTableOfContents> */}
+                                        {/* <VerticalNavigation term={props.term} /> */}
+                                        {/* <hr className="py-4" /> */}
+                                        <TermTableOfContents term={props.term} />
                                     </div>
                                 </div>
                             </section>
 
                             {props.term.data.tags && props.term.data.tags.length > 0 && (
                                 <section aria-labelledby="section-2-title">
-                                    <h2 className="sr-only" id="section-2-title">
-                                        Section title
-                                    </h2>
                                     <div className="rounded-sm bg-white overflow-hidden shadow">
 
                                         <div className="p-6">
