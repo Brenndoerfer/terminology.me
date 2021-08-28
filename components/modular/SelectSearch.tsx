@@ -54,8 +54,9 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
     const handleChange = value => {
         let url = `${TERM_PATH}/${value.value}`
         setLoadingState(true);
-        router.push(url, undefined, { shallow: false })
-        setTimeout(() => setLoadingState(false), 2500) // TODO: change to more robust URL onChange
+        // window.location = url
+        router.push(url, url, { shallow: false })
+        // setTimeout(() => setLoadingState(false), 2500) // TODO: change to more robust URL onChange
     }
 
     const handleShortcut = () => {
