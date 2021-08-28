@@ -85,7 +85,9 @@ const Headings = ({ headings, activeId }) => (
                 href={`#${item.id}`}
                 className={classNames(
                     item.id == activeId ? 'bg-indigo-100 text-gray-900' : 'text-gray-600 hover:bg-gray-100 hover:text-gray-900',
-                    'flex items-center px-3 py-2 text-sm font-medium rounded-md'
+                    'flex items-center px-3 py-2 text-sm font-medium rounded-md',
+                    `ml-${(item.level - 2) * 4}`
+
                 )}
                 aria-current={item.current ? 'page' : undefined}
             >
