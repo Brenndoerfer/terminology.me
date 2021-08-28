@@ -14,11 +14,11 @@
 
 /* //sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900 */
 .rm h2 {
-    @apply text-3xl font-bold mt-16;
+    @apply text-3xl font-bold mt-12;
 }
 
 .rm h3 {
-    @apply text-2xl font-semibold mt-12
+    @apply text-2xl font-semibold mt-8
 }
 
 .rm h4 {
@@ -39,8 +39,12 @@
     @apply my-1
 }
 
+.rm ul {
+    @apply mt-4;
+}
+
 .rm ol {
-    @apply my-1 pl-4 ml-2 text-gray-700
+    @apply mt-4 my-1 pl-4 ml-2 text-gray-700
 }
 
 .rm ul>li {

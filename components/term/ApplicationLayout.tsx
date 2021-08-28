@@ -105,7 +105,7 @@ export default function AppliactionLayout(props: IAppliactionLayoutProps) {
                             <section aria-labelledby="section-1-title">
 
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
-                                    <div className="p-6">
+                                    <div className="p-6 mb-12">
                                         <MarkdownRenderer author={props.author} term={props.term} />
                                     </div>
                                 </div>
