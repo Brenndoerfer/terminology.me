@@ -22,39 +22,43 @@ import styles from './TableOfContents.module.css'
 //     return nestedHeadings;
 // };
 
-function extractHeadings(content: string) {
+function extractHeadings(term: ITerm) {
 
     const headlineFilter = /(#{2,6})\s+(\w.*)/g
-    const headlinesAll = [...content.matchAll(headlineFilter)]
+    const headlinesAll = [...term.content.matchAll(headlineFilter)]
     const headlines = headlinesAll.map(item => (
         {
             level: item[1].length,
             title: item[2],
             id: item[2].toLowerCase().trim().replace(/ /g, '-'),
-            // current: false,
         }
     ))
+    // headlines.push({
+    //     level: 2,
+    //     title: "Comments",
+    //     id: "comments",
+    // })
     return headlines
 
 }
 
-const useHeadingsData = (term: ITerm) => {
-    const [nestedHeadings, setNestedHeadings] = useState([]);
+// const useHeadingsData = (term: ITerm) => {
+//     const [nestedHeadings, setNestedHeadings] = useState([]);
 
-    useEffect(() => {
-        // const headingElements = Array.from(
-        //     document.querySelectorAll("h2, h3")
-        // );
+//     useEffect(() => {
+//         // const headingElements = Array.from(
+//         //     document.querySelectorAll("h2, h3")
+//         // );
 
-        // const newNestedHeadings = getNestedHeadings(headingElements);
+//         // const newNestedHeadings = getNestedHeadings(headingElements);
 
-        const newNestedHeadings = extractHeadings(term.content)
-        setNestedHeadings(newNestedHeadings);
+//         const newNestedHeadings = extractHeadings(term.content)
+//         setNestedHeadings(newNestedHeadings);
 
-    }, []);
+//     }, []);
 
-    return { nestedHeadings };
-};
+//     return { nestedHeadings };
+// };
 
 const Headings = ({ headings, activeId }) => (
     // <ul className={styles.toc}>
@@ -91,7 +95,7 @@ const Headings = ({ headings, activeId }) => (
     </div>
 );
 
-const useIntersectionObserver = (setActiveId) => {
+const useIntersectionObserver = (setActiveId, listOfIds) => {
     const headingElementsRef = useRef({});
     useEffect(() => {
         const callback = (headings) => {
@@ -111,11 +115,15 @@ const useIntersectionObserver = (setActiveId) => {
                 headingElements.findIndex((heading) => heading.id === id);
 
             if (visibleHeadings.length === 1) {
+                console.log(visibleHeadings[0].target.id)
+
                 setActiveId(visibleHeadings[0].target.id);
+
             } else if (visibleHeadings.length > 1) {
                 const sortedVisibleHeadings = visibleHeadings.sort(
                     (a, b) => getIndexFromId(a.target.id) > getIndexFromId(b.target.id)
                 );
+                console.log(sortedVisibleHeadings[0].target.id)
                 setActiveId(sortedVisibleHeadings[0].target.id);
             }
         };
@@ -124,12 +132,13 @@ const useIntersectionObserver = (setActiveId) => {
             rootMargin: "-100px 0px 40% 0px"
         });
 
-        const headingElements = Array.from(document.querySelectorAll("h2, h3"));
-
+        const headingElements = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6"))
+            .filter(element => listOfIds.includes(element.id));
         headingElements.forEach((element) => observer.observe(element));
+        console.log(headingElements)
 
         return () => observer.disconnect();
-    }, [setActiveId]);
+    }, [setActiveId, listOfIds]);
 };
 
 
@@ -140,25 +149,10 @@ interface ITableOfContentsProp {
 export default function TermTableOfContents(props: ITableOfContentsProp) {
 
     const [activeId, setActiveId] = useState();
-    const nestedHeadings = extractHeadings(props.term.content)
-    useIntersectionObserver(setActiveId);
+    const nestedHeadings = extractHeadings(props.term)
+    const listOfIds = nestedHeadings.map(item => item.id)
 
-    // const { nestedHeadings } = useHeadingsData(props.term);
-    // const [nestedHeadings, setNestedHeadings] = useState([]);
-
-    // useEffect(() => {
-    //     // const headingElements = Array.from(
-    //     //     document.querySelectorAll("h2, h3")
-    //     // );
-
-    //     // const newNestedHeadings = getNestedHeadings(headingElements);
-
-    //     const newNestedHeadings = extractHeadings(term.content)
-    //     setNestedHeadings(newNestedHeadings);
-
-    // }, []);
-
-
+    useIntersectionObserver(setActiveId, listOfIds);
 
     return (
         <>

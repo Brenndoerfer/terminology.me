@@ -117,7 +117,7 @@ export default function AppliactionLayout(props: IAppliactionLayoutProps) {
                                     <div className="p-6">
                                         <div className="">
                                             <div className="w-full mb-6 lg:mb-0">
-                                                <h2 className="text-2xl font-bold">Comments</h2>
+                                                <h2 className="text-2xl font-bold" id="comments">Comments</h2>
                                                 <div className="h-1 w-10 bg-indigo-500"></div>
                                             </div>
                                             <div className={classNames("mt-8", rmStyles.rm)}>
