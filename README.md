@@ -14,11 +14,12 @@ Compact and easy to understand explanations for the modern, cross-functional eng
   - [ ] defer disquss load
   - [x] remove unused content
 - [x] create hero most recent 4 adds programtically
-- [ ] terms page content table
+- [x] terms page content table
 - [x] terms page authors
 - [ ] related terms with example under the post itself
-- [ ] add H2 Definition of XXX above every intro pargraph
-
+- [x] add H2 Definition of XXX above every intro pargraph
+- [ ] glossary page overall
+- [ ] glossary page a-z for each domain
 - [ ] domains page add buttons
 - [ ] domains page topics 3x3 matrix or topics gallery
 

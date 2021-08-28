@@ -97,7 +97,7 @@ export function getMostRecentTerms(): ITermSuggestions[] {
 
 
     return ALL_TERMS
-        .sort((term1, term2) => (term1.data.created > term2.data.created ? 1 : -1))
+        .sort((term1, term2) => (term1.data.created > term2.data.created ? -1 : 1))
         .slice(0, 4)
         .map(item => {
             return {

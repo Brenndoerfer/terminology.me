@@ -23,7 +23,7 @@ interface IHomeProps {
 }
 
 export default function Home(props: IHomeProps) {
-    console.log(props.allSearchOptions);
+    // console.log(props.allSearchOptions);
 
     return (
         <>

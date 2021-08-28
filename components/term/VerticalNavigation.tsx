@@ -38,7 +38,7 @@ export default function VerticalNavigation(props: IVerticalNavigationProps) {
     // const definitionHeader = `## Definition of ${props.term.data.title}`;
     const headings = extractHeadings(props.term.content)
     headings[0].current = true;
-    console.log(headings)
+    // console.log(headings)
 
     const [activeId, setActiveId] = useState<number>();
     useIntersectionObserver(setActiveId);

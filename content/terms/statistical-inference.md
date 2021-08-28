@@ -5,8 +5,8 @@ tags: []
 domain: "ds"
 topics: []
 author: "michael_brenndoerfer"
-created: ""
-updated: ""
+created: "2021-08-15"
+updated: null
 draft: false
 references: [
 "https://mne.tools/stable/auto_tutorials/stats-sensor-space/10_background_stats.html",

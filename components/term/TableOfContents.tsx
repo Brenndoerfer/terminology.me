@@ -117,7 +117,7 @@ const useIntersectionObserver = (setActiveId, listOfIds) => {
                 headingElements.findIndex((heading) => heading.id === id);
 
             if (visibleHeadings.length === 1) {
-                console.log(visibleHeadings[0].target.id)
+                // console.log(visibleHeadings[0].target.id)
 
                 setActiveId(visibleHeadings[0].target.id);
 
@@ -125,7 +125,7 @@ const useIntersectionObserver = (setActiveId, listOfIds) => {
                 const sortedVisibleHeadings = visibleHeadings.sort(
                     (a, b) => getIndexFromId(a.target.id) > getIndexFromId(b.target.id)
                 );
-                console.log(sortedVisibleHeadings[0].target.id)
+                // console.log(sortedVisibleHeadings[0].target.id)
                 setActiveId(sortedVisibleHeadings[0].target.id);
             }
         };
@@ -137,7 +137,7 @@ const useIntersectionObserver = (setActiveId, listOfIds) => {
         const headingElements = Array.from(document.querySelectorAll("h1, h2, h3, h4, h5, h6"))
             .filter(element => listOfIds.includes(element.id));
         headingElements.forEach((element) => observer.observe(element));
-        console.log(headingElements)
+        // console.log(headingElements)
 
         return () => observer.disconnect();
     }, [setActiveId, listOfIds]);
