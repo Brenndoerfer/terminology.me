@@ -10,5 +10,4 @@ linkedin: "https://www.linkedin.com/in/michaelbrenndoerfer/"
 stackoverflow: "https://stackoverflow.com/users/1420080/michael"
 ---
 
-I enjoy building products using modern web tech stacks and engineering problems in the machine learning and data engineering space.
-
+I enjoy building software products, reliable data pipelines, and machine learning enabled applications.

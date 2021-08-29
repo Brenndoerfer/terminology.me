@@ -30,3 +30,11 @@ body {
     margin-top: -100px;
     visibility: hidden;
 }
+
+.link {
+    @apply underline text-indigo-600 transition duration-300 ease-in-out;
+}
+
+.link:hover {
+    @apply underline text-indigo-700;
+}
