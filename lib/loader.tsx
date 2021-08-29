@@ -6,7 +6,7 @@ import { join } from 'path'
 import matter from 'gray-matter';
 import sha1 from 'js-sha1';
 import { ITerm, IMatterResult, IAuthor } from './loaderInterface';
-import { ITermSuggestions } from '../components/TermSuggestions';
+import { ITermSuggestions } from '../components/modular/TermSuggestions';
 import { domainShortcutToLongname, domainShortcutToDomainHref } from './transformer';
 import { ISearchOptions } from '../components/modular/SelectSearchInterface';
 

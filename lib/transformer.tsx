@@ -11,8 +11,8 @@ export const domainShortcutToLongname = (shortcut: string): string | null => {
     if (shortcutLower === 'swe') {
         return 'Software Engineering'
     }
-    if (shortcutLower === 'finance') {
-        return 'Finance & Business'
+    if (shortcutLower === 'finance' || shortcutLower === 'business' || shortcutLower === 'biz') {
+        return 'Business & Finance'
     }
     if (shortcutLower === 'block') {
         return 'Blockchain'
@@ -100,7 +100,35 @@ export const domainHrefToShortname = (href: string): string => {
 
 }
 
+export interface IDomainToColor {
+    lightBorder: string,
+    mediumBorder: string,
+    strongBorder: string,
+    text: string,
+}
 
+export function domainShortToColor(domain: string): IDomainToColor {
+
+    let lDomain = domain.toLowerCase().trim()
+    let color = "indigo";
+
+    switch (lDomain) {
+        case "ds": color = 'blue'; break;
+        case "de": color = 'red'; break;
+        case "swe": color = 'orange'; break;
+        case "finance": color = 'green'; break;
+        case "cloud": color = 'blueGray'; break;
+        case "blockchain": color = 'warmGray'; break;
+        default: color = 'indigo'; break;
+    }
+
+    return {
+        mediumBorder: `border-${color}-300`,
+        lightBorder: `border-${color}-100`,
+        strongBorder: `border-${color}-500`,
+        text: `text-${color}-600`
+    }
+}
 
 
 export const captializeWords = (sentence: string): string => {

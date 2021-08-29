@@ -17,6 +17,7 @@ import Link from 'next/link'
 import styles from './HeaderNavbar.module.css';
 import Image from 'next/image';
 import useScrollPosition from '@react-hook/window-scroll'
+import classNames from 'classnames';
 
 const solutions = [
     {
@@ -70,10 +71,15 @@ const resources = [
         href: '/software-engineering'
     },
     {
-        name: 'Business & Finance',
-        description: 'EBITDA, credit default swaps, etc.',
-        href: '/business-and-finance',
+        name: 'Data Engineering',
+        description: 'Hadoop, Spark, Kafka, etc.',
+        href: '/data-engineering',
     },
+    // {
+    //     name: 'Business & Finance',
+    //     description: 'EBITDA, credit default swaps, etc.',
+    //     href: '/business-and-finance',
+    // },
     {
         name: 'Cloud Technology',
         description: 'AWS, GCP, Azure, Databricks, etc.',
@@ -86,19 +92,12 @@ const resources = [
     },
 ]
 
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ')
-}
+// function classNames(...classes) {
+//     return classes.filter(Boolean).join(' ')
+// }
 
 export default function HeaderNavbar() {
 
-    const scrollY = useScrollPosition(60)
-
-    const [open, setOpen] = useState(false)
-
-    const handleClose = () => {
-        setOpen(false)
-    }
 
 
     return (
@@ -129,8 +128,8 @@ export default function HeaderNavbar() {
                                         <Link href="/data-science"><a className="text-base font-medium text-gray-500 hover:text-gray-900">
                                             Data Science
                                         </a></Link>
-                                        <Link href="/data-engineering"><a className="text-base font-medium text-gray-500 hover:text-gray-900">
-                                            Data Engineering
+                                        <Link href="/business-and-finance"><a className="text-base font-medium text-gray-500 hover:text-gray-900">
+                                            Business & Finance
                                         </a></Link>
 
                                         <Popover className="relative">
