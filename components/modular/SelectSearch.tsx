@@ -52,11 +52,12 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
 
 
     const handleChange = value => {
-        let url = `${TERM_PATH}/${value.value}`
+        let url = `${TERM_PATH}/[term]`
+        let as = `${TERM_PATH}/${value.value}`
         setLoadingState(true);
         // window.location = url
-        router.reload(url)
-        // router.push(url, url, { shallow: false })
+        // router.reload(url)
+        router.push(url, as, { shallow: false })
         // setTimeout(() => setLoadingState(false), 2500) // TODO: change to more robust URL onChange
     }
 

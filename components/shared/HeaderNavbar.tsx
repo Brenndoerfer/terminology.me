@@ -112,7 +112,7 @@ export default function HeaderNavbar() {
                                     <Link href="/"><a className="flex">
                                         <div className="flex items-center">
                                             <span className="sr-only">Terminology.me</span>
-                                            <Image layout="fixed" width="32" height="32" src="/logo.png" alt="terminology.me logo small" />
+                                            <img width="32" height="32" src="/logo.png" alt="terminology.me logo small" />
                                             <span className="ml-6 font-semibold uppercase">Terminology.me</span>
                                         </div>
                                     </a>
