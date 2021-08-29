@@ -8,6 +8,7 @@ import { ITermSuggestions } from '../../components/modular/TermSuggestions';
 import Container from '../../components/layout/Container';
 import React from 'react';
 import H2 from '../../components/shared/H2';
+import ProgressBar from '../../components/term/ScrollProgress';
 // const AppliactionLayout = dynamic(() => import('../../components/Term/ApplicationLayout'));
 const TermSuggestions = dynamic(() => import('../../components/modular/TermSuggestions'));
 
@@ -23,6 +24,9 @@ export default function Term(props: ITermProps) {
     return (
         <>
             <Layout title={props.termWithTags.data.title} term={true}>
+
+
+
 
                 <AppliactionLayout term={props.termWithTags} author={props.author} searchOptions={props.searchOptions}></AppliactionLayout>
 

@@ -1,4 +1,4 @@
 {
   "editor.find.autoFindInSelection": "always",
-  "editor.find.seedSearchStringFromSelection": "selection"
+  "editor.find.seedSearchStringFromSelection": "never"
 }

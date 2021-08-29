@@ -26,6 +26,8 @@ import rmStyles from './MarkdownRenderer.module.css'
 import MarkdownRenderer from './MarkdownRenderer';
 import Breadcrumbs from './Breadcrumbs';
 import TermTableOfContents from '../term/TableOfContents';
+import ProgressBar from './ScrollProgress';
+import { useRef } from 'react';
 
 const VerticalNavigation = dynamic(() => import('./VerticalNavigation'));
 const SelectSearch = dynamic(() => import('../modular/SelectSearch'));
@@ -42,8 +44,12 @@ interface IAppliactionLayoutProps {
 }
 
 export default function AppliactionLayout(props: IAppliactionLayoutProps) {
+
+    const markdownRef = useRef(null)
+
     return (
         <div className=" bg-gray-50">
+            <ProgressBar bgcolor="#5046E5" height="3" contentRef={markdownRef} />
             <Popover as="header" className="pb-24 bg-indigo-500">
                 {({ open }) => (
                     <>
@@ -105,7 +111,7 @@ export default function AppliactionLayout(props: IAppliactionLayoutProps) {
                             <section aria-labelledby="section-1-title">
 
                                 <div className="rounded-sm bg-white overflow-hidden shadow">
-                                    <div className="p-6 mb-12">
+                                    <div className="p-6 mb-12" ref={markdownRef}>
                                         <MarkdownRenderer author={props.author} term={props.term} />
                                     </div>
                                 </div>

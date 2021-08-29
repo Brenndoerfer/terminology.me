@@ -55,7 +55,8 @@ export default function SelectSearch({ options, styles, css, inputId }: SelectSe
         let url = `${TERM_PATH}/${value.value}`
         setLoadingState(true);
         // window.location = url
-        router.push(url, url, { shallow: false })
+        router.reload(url)
+        // router.push(url, url, { shallow: false })
         // setTimeout(() => setLoadingState(false), 2500) // TODO: change to more robust URL onChange
     }
 

@@ -22,6 +22,7 @@ Compact and easy to understand explanations for the modern, cross-functional eng
 - [ ] glossary page a-z for each domain
 - [ ] domains page add buttons
 - [ ] domains page topics 3x3 matrix or topics gallery
+- [ ] progress bar on terms page https://www.npmjs.com/package/react-scroll-progress-bar
 
 ## Page structure
 
