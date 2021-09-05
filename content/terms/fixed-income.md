@@ -11,7 +11,7 @@ references: ["https://www.blackrock.com/us/individual/education/fixed-income"]
 draft: false
 ---
 
-Fixed Income is an investing approach focused on the preservation of capital and income. It usually entails investments into bonds (government and corporate), certificate deposits, and money market funds. Goal is to achieve steady income while minimizing risk compared to equities.
+Fixed Income is an investing approach (or any type of investment) focused on the preservation of capital and income. It usually entails investments into government and corporate bonds, certificate deposits (CD), and money market funds. Goal is to achieve steady income while minimizing risk compared to equity investments.
 
 ## Benefits of fixed income
 
