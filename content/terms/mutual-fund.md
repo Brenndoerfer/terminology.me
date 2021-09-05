@@ -20,7 +20,7 @@ A mutual fund is a company that pools money from investors to invest it in secur
 
 ## Earning returns from mutual fund investing
 
-By buying shares of the fund, you are effectively buying into its overall performance. These shares however do not grant any voting rights. The value of a share is determined by dividing the Net Asset Value (NAV) of the fund buy all its outstanding shares (meaning shares held by stakeholders). Mutual fund share prices do not fluctuate intra day as they are settled at the end of the day.
+By buying shares of the fund, you are effectively buying into its overall performance. These shares however do not grant any voting rights. The value of a share is determined by dividing the Net Asset Value (NAV) of the fund by all its outstanding shares (meaning shares held by stakeholders). Mutual fund share prices do not fluctuate intra day as they are settled at the end of the day.
 
 ## Mutual fund income types
 
